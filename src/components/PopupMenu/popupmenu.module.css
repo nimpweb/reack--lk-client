@@ -1,0 +1,38 @@
+.popupMenuOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  cursor: default;
+  background-color: #045a94;
+}
+
+.menu__dropdownList {
+  position: absolute;
+  background: #fff;
+  color: #888;
+  box-shadow: 0px 0px 10px rgb(100,100,100, .5);
+  padding: 10px;
+  border-radius: 5px;
+  list-style-type: none;
+  margin: 0;
+  z-index: 10;
+}
+
+.menu__dropdownList.active {
+  display: block;
+}
+
+.menu__dropdownList a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: #888;
+}
+
+.menu__dropdownList a:hover {
+  border-color: transparent;
+  color: #045a94;
+}

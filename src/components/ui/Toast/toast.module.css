@@ -1,0 +1,73 @@
+.toast {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  max-width: 360px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transform: translateY(-50px);
+  transition: .5s ease;
+  -webkit-transition: .5s ease;
+  -moz-transition: .5s ease;
+  -ms-transition: .5s ease;
+  -o-transition: .5s ease;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.toast.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  cursor: pointer;
+}
+
+.toast .closeButton {
+  font-size: 24px;
+  margin-left: 15px;
+  color: white;
+  transition: .6s ease;
+  -webkit-transition: .6s ease;
+  -moz-transition: .6s ease;
+  -ms-transition: .6s ease;
+  -o-transition: .6s ease;
+  cursor: pointer;
+}
+
+.toast .closeButton:hover {
+  color: #999;
+}
+
+.toast.active {
+
+}
+
+.toastBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  color: white;
+  border-radius: 0.25rem;
+}
+
+.toastBody.success {
+  background: green;
+  -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 212, 72, 0.2);
+  -moz-box-shadow: 0px 0px 30px 3px rgba(0, 212, 72, 0.2);
+  box-shadow: 0px 0px 30px 3px rgba(0, 212, 72, 0.2);
+}
+
+.warning {
+  padding: 20px;
+  color: olive;
+  background: rgba(230, 230, 72, 0.308);
+}

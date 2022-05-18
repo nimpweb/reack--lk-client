@@ -1,0 +1,40 @@
+.monitor {
+  
+}
+
+.graphics {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.graphLeft {
+  width: 49%;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+}
+.graphRight {
+  width: 49%;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+}
+
+.graphLeft:hover, 
+.graphRight:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.blocks {
+  display: flex;
+  flex-wrap: wrap;
+}
+

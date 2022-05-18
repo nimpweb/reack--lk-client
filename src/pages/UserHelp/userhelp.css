@@ -1,0 +1,47 @@
+.image-container {
+  position: relative;
+  border: solid 1px rgba(100, 100, 100, .1);
+  padding: 5px;
+  max-width: 200px;
+  max-height: 200px;
+  float: left;
+  margin: 10px;
+}
+
+.image-container.right {
+  float: right;
+}
+
+.image-container.center {
+  clear: both;
+}
+
+
+.image-container > img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.image-container .zoom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  color: #fff;
+  transition: all .22s linear;
+  /* box-shadow: 0 0 3px rgba(100, 100, 100, .5); */
+}
+
+.image-container .zoom svg {
+  transition: all .22s linear;
+  opacity: .3;
+}
+
+.image-container:hover .zoom {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.image-container:hover .zoom svg {
+  opacity: 1;
+}

@@ -1,0 +1,66 @@
+.uiInputContainer {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.uiHelperContainer {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  height: 15px;
+}
+
+.uiHelperContainer .errorMessage {
+  color: coral;
+  text-align: left;
+}
+
+.uiHelperContainer .helpMessage {
+  color: gray;
+  text-align: left;
+}
+
+.uiHelperContainer .chars {
+  color: #b1a9a9;
+  text-align: right;
+}
+
+.uiInput {
+  background-color: white;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding: 12px;
+  width: 100%;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+}
+
+.uiTitle {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  cursor: text; 
+  font-size: 13px;
+  color: rgb(108, 115, 143);
+  transition: all .5s ease;
+}
+
+.uiInput:focus + .uiTitle,
+.uiInput.filled + .uiTitle {
+  top: -8px;
+  left: 10px;
+  font-size: 10px;
+  background-color: white;
+  padding: 3px 5px;
+  color: #b1a9a9;
+}
+
+.uiInput:active, .uiInput:focus {
+  border-color: var(--blue-color);
+}

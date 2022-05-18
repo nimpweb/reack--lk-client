@@ -1,0 +1,63 @@
+.vcode-container {
+  margin-top: 50px;
+}
+
+.vcode-block {
+  position: relative;
+  padding: 70px 0;
+  width: 300px;
+  height: 250px;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 0 0 10px rgba(100, 100, 100, .2);
+}
+
+.vcode-block .vcode-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vcode-block .vcode-inputs input[type=tel] {
+  width: 50px;
+  height: 50px;
+  border: solid 1px rgba(100, 100, 100, .2);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  margin-right: 10px;
+  font-size: 24px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(100, 100, 100, .2);
+}
+
+.vcode-block input::-webkit-outer-spin-button,
+.vcode-block input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.vcode-block .vcode-button-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.vcode-block .vcode-error {
+  color: #ff544c;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+.mt10px {
+  margin-top: 10px;
+}

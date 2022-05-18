@@ -1,0 +1,66 @@
+.input {
+  margin: 10px 0;
+  width: 100%;
+  position: relative;
+  background-color: #0000000d;
+  color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.input input {
+  height: 50px;
+}
+
+.input input,
+.input textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 20px 10px 10px 10px;
+  border-radius: 5px;
+  border-bottom: solid 1px rgba(0, 0, 0, .2);
+  z-index: 1;
+  color: var(--first-color);
+}
+
+.input label {
+  z-index: 0;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  color: #444;
+  left: 10px;
+  top: 17px;
+  transition: .1s cubic-bezier(.25,.8,.5,1);
+  -webkit-transition: .1s cubic-bezier(.25,.8,.5,1);
+  -moz-transition: .1s cubic-bezier(.25,.8,.5,1);
+  -ms-transition: .1s cubic-bezier(.25,.8,.5,1);
+  -o-transition: .1s cubic-bezier(.25,.8,.5,1);
+  pointer-events: none;
+  transform-origin: top left;
+}
+
+.input input:focus,
+.input textarea:focus {
+  border-bottom: solid 1px #6a59d1;
+}
+
+.input input:focus ~ label,
+.input input.fill ~ label,
+.input textarea:focus ~ label,
+.input textarea.fill ~ label
+ {
+  color: #6a59d1;
+  transform: translateY(-15px) scale(.75);
+  -webkit-transform: translateY(-15px) scale(.75);
+  -moz-transform: translateY(-15px) scale(.75);
+  -ms-transform: translateY(-15px) scale(.75);
+  -o-transform: translateY(-15px) scale(.75);
+}

@@ -1,0 +1,210 @@
+.userList {
+  
+}
+
+.modalContent {
+  display: flex;
+  width: 100%;
+  overflow-y: auto;
+  flex-direction: column;
+}
+
+
+.modalRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalCol50 {
+  width: 48%;
+}
+
+.toLeft {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+
+.tableFilterRow {
+  padding: 0!important;
+}
+
+.tableFilterPanel {
+  display: flex;
+  width: 100%;
+  /* margin: 20px 0 10px; */
+  /* background-color: silver; */
+  padding: 5px;
+}
+
+.tableFilterBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tableFilterInputDescription {
+  margin-top: 5px;
+  font-size: .6rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.tableFilterInput {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px gray;
+  width: 100%;
+}
+
+.tableFilterInput svg {
+  color: #555;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+.tableFilterInput input {
+  padding: 10px;
+  border: none;
+  color: #555;
+  width: 100%;
+  background-color: transparent;
+  transition: all .5s ease;
+}
+
+.tableFilterInput input:focus {
+  background-color: white;
+  border-color: blue;
+}
+
+.table {
+  width: 100%;
+  color: #555;
+  border-collapse: collapse;
+}
+
+.table th {
+  font-weight: 500;
+  font-size: .7rem;
+  padding: 10px;
+  border-bottom: solid 1px #999;
+  text-align: left;
+}
+
+.table td {
+  padding: 10px;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.table td p {
+  margin: 3px 0;
+}
+
+.tableRow {
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.tableRow:hover {
+  background-color: rgba(100, 100, 100, .1);
+}
+
+.tableTextValue {
+  font-weight: bold;
+}
+
+.tableTextSuccess {
+  padding: 3px 6px;
+  font-size: .7rem;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.tableTextDanger {
+  padding: 3px 6px;
+  font-size: .7rem;
+  background-color: coral;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.tableFooter {
+  padding-top: 10px;
+  border-top: solid 1px transparent;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  transition: border-color .22s ease;
+}
+
+.tableFooter:hover {
+  border-color: rgba(100, 100, 100, .1);
+}
+
+.tableFooter > * {
+  margin: 0 10px;
+}
+
+.tablePagination {
+  display: flex;
+  list-style: none;
+}
+
+.tablePage {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -webkit-transition: all .2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -moz-transition: all .2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -ms-transition: all .2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -o-transition: all .2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.tablePage:hover {
+  background-color:rgba(100, 100, 100, .1)
+}
+
+.tablePageClear {
+  border-radius: 50%;
+  padding: 5px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.tableCellInner {
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.tableCellIcon {
+  font-size: .8rem !important;
+  color: silver;
+  margin-right: 10px;
+}
+
+.tableCellBoundGreen {
+  background-color: green;
+  color: white;
+  font-size: .7rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 5px;
+  letter-spacing: .8px;
+}
