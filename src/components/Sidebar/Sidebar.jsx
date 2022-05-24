@@ -27,6 +27,11 @@ export default function Sidebar() {
                 <span className="sidebarListItemMessages">1701</span>
                 </Link>
               </li>
+              <li>
+                <Link  to="/statement" className={`sidebarListItem ${location.pathname === '/statement' && ' active'}`}>
+                <ViewStream className="sidebarIcon" /> Передача показаний
+                </Link>
+              </li>
               <li><Link className="sidebarListItem" to="/appeals"><Sms className="sidebarIcon" /> Обращения <span className="sidebarListItemMessages">7</span></Link></li>
               <li><Link className={`sidebarListItem ${location.pathname === '/profile' && ' active'}`} to="/profile"><Person className="sidebarIcon" /> Профиль</Link></li>
             </ul>

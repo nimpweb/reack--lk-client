@@ -3,9 +3,7 @@ import s from './support.module.css'
 
 const SupportPage = () => {
   return (
-    <Page 
-    >
-      
+    <Page>
       <div className={s.supportContainer}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, similique eos minus fugiat facilis eaque velit distinctio, architecto aliquid, dignissimos sapiente quod deserunt! Cum nisi aspernatur voluptates corporis nostrum aut.
         Veniam soluta error fuga qui laborum porro ipsam expedita adipisci accusamus ratione, sapiente eum rem repellat maiores architecto itaque quidem in nihil. Odit animi magnam dignissimos optio, quam nam autem?

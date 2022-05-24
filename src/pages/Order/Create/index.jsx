@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Step0, Step1, Step2, Step3 } from './Steps';
-import landingStyles from '../../Landing/landing.module.css';
+import PageTitle from './../../../components/PageTitle';
 
 const stepsCount = 3;
 
@@ -56,10 +56,8 @@ export default function OrderCreatePage() {
 
   return (
     <CreateOrderContext.Provider value={ {sid, setSid, toa, nextStep, prevStep, pushData } }>
-      <section>
-        <div className={landingStyles.sectionTitleBack}>Шаг {step+1}. {stepTitles[step]}</div>
-        <div className={landingStyles.sectionTitleFore}>Шаг {step+1}. {stepTitles[step]}</div>
-      </section>
+      <PageTitle title={`Шаг ${step+1}. ${stepTitles[step]}`} />
+
       <section>
         <Step />
       </section>

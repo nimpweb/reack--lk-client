@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback,  useState } from 'react'
-import { NavigateNext, NavigateBefore, Report, AddToDrive } from '@mui/icons-material';
+import { NavigateNext, NavigateBefore, Report } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { NewInput, Button, Checkbox, Layout } from '../../../../components/ui'
 import { Formik, Form, Field } from 'formik'
@@ -67,12 +67,52 @@ export default function Step1({ setPage }) {
     window.scrollTo(0, 0)
   }, [])
 
+  const handleChangeAdminUserList = async item => {
+    const { id } = item;
+    // const foundedUser = await User.find( id )
+
+    setInitialValues(prev => ({
+      applicantFio: 'Петров Петр Петрович',
+      applicantEmail: 'petrov@mail.ru',
+      applicantAddress: 'Самарская область, г.Самара, ул.Чернореченская, д.56, кв.16'
+    }))
+
+  }
+
   return (
     <>
   
     <Formik initialValues={initalValues} onSubmit={onSubmit} >
       { ({ values, handleChange }) => (
         <Form className={styles.stepContainer}>
+
+          <Layout margin='20px 0' padding="20px" content="flex-start" border={`solid 1px rgba(100, 100, 100, .2)`} borderRounded="10px" gap="3px">
+            <div className={styles.adminBox}> 
+              <NewSelect 
+                title="Выберите пользователя, на которого будет оформляться заявка"
+                items={[
+                  { id: 0, value: 'Добавить нового пользователя', onSelect: item => alert('select to create a new user: ' + JSON.stringify(item)) },
+                  {id: 1, value: 'Петров Петр Петрович | petrov@mail.ru'},
+                  {id: 2, value: 'Сидоров Сидор Сидорович | sidorov@yandex.ru'}
+                ]} 
+                onChange={ e => handleChangeAdminUserList(e)}
+              />
+              <p style={{fontSize: 12, fontWeight: '300', color: 'silver'}}> I. Администратор сетевой компании имеете возможность создаввать нового пользователя, а также выбирать пользователя, на чье имя будет оформляться заявка Вами</p>
+              <p style={{fontSize: 12, fontWeight: '300', color: 'silver'}}>II.Подача заявки администратором может осуществляться только для физического лица мощностью до 15Квт</p>
+            </div>
+          </Layout>
+
+          <div className="w-100">
+            <NewSelect 
+              title="Вид заявителя"
+              items={[
+                {id: 1, value: 'Физическое лицо'},
+                {id: 2, value: 'Юридическое лицо'},
+                {id: 3, value: 'Индивидуальный предприниматель'},
+              ]}
+            />
+          </div>
+
           <div className={styles.showCorrectInfoBlock}>
             <Report />
             <h5>Проверьте данные, которые указны у вас в профиле. От имени этого лица будет оформляться заявка. Если даныне в профиле указаны не корректно, то исправьте их в <Link to={`/profile`}>Вашем профиле</Link>. </h5>
@@ -103,19 +143,7 @@ export default function Step1({ setPage }) {
           )
          }
 
-        <Layout margin='20px 0' padding="20px" content="flex-start" border={`solid 1px rgba(100, 100, 100, .2)`} borderRounded="10px">
-          <div className="text-center">
-            <p className="text-center"><b>Вы как администратор сетевой компании имеете возможность создаввать нового пользователя, а также выбирать пользователя, на чье имя будет оформляться заявка Вами</b></p>
-            <div className={styles.adminBox}> 
-              <Button onClick={() => alert('Добавляем нового пользователя')}><AddToDrive /> Добавить нового пользователя сетевой компании</Button>
-              <NewSelect items={
-                [
-                  {id: 1, value: 'Петров Петр Петрович'},
-                  {id: 2, value: 'Сидоров Сидор Сидорович'},
-                ]} onChange={ e => console.log(e)}/>
-            </div>
-          </div>
-        </Layout>
+        
 
           <div style={{width: '100%', margin: '10px 0', textAlign: 'center', display: 'flex', justifyContent: 'center'}}>
             <Field 
@@ -146,10 +174,7 @@ export default function Step1({ setPage }) {
             </>
           ) }
 
-          <div>
-            <pre>{JSON.stringify(values, null, 2)}</pre>
-            </div>
-          <Layout margin='20px 0' content="flex-start">
+          <Layout margin='20px 0' content="flex-end">
             <Button type="button" disabled={ currentStep > 0 } onClick={() => dispatch(prevStep)}><NavigateBefore /> Назад</Button>
             <Button type="submit">Далее к заполнению цели заявки <NavigateNext /></Button>
           </Layout>

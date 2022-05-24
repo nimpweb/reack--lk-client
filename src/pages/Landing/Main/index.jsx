@@ -1,24 +1,34 @@
 import { AddTask, FormatListNumbered, PendingActions, HistoryEdu, ArrowRight, Phone, Email, ForwardToInbox, ThumbUpAlt, Info } from '@mui/icons-material';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {Link} from 'react-router-dom'
 import {Modal} from '../../../components/ui';
-import styles from '../landing.module.css';
+import styles from '../../../styles/landing.module.css';
 import OrderToMount from './OrderToMount';
 import { ModalIntegration, ModalCounting } from './Modals'
 import cn from 'classnames';
 import LandingNavBar from './../LandingNavBar'
-
 
 export default function MainPage() {
   const [modalMount, setModalMount] = useState(false);
   const [modalIntegration, setModalIntegration] = useState(false);
   const [modalCounting, setModalCounting] = useState(false);
 
+  const homeRef = useRef();
+  const infoRef = useRef();
+  const plusRef = useRef();
+
+
   return (
     <div className={styles.mainPage}>
-      <LandingNavBar />
+      <LandingNavBar 
+        refsItems={[
+          { title: 'Главная', ref: homeRef},
+          { title: 'Наши достижения', ref: infoRef},
+          { title: 'Плюсы', ref: plusRef}
+        ]}
+      />
 
-      <section id="home" className={styles.home}>
+      <section ref={homeRef} id="home" className={styles.home}>
         <div className={styles.homeContainer}>
           <div className={styles.homeInfo}>
             <h2>Личный кабинет</h2>
@@ -37,8 +47,8 @@ export default function MainPage() {
         </div>
       </section>
 
-      <section id="info" className={`${styles.section} ${styles.infoSection}`}>
-        <div className={styles.sectionTitleBack}>Наши достижения</div>
+      <section ref={infoRef} id="info" className={`${styles.section} ${styles.infoSection}`}>
+      <div className={styles.sectionTitleBack}>Наши достижения</div>
         <div className={styles.sectionTitleFore}>Наши достижения</div>
         <div className={styles.infoSectionContainer}>
           <div className={styles.infoSectionImageContainer}>
@@ -87,8 +97,12 @@ export default function MainPage() {
           </div>
         </div>
       </section>
+{/* 
+      <section id="info" className={`${styles.section} ${styles.infoSection}`}>
+        
+      </section> */}
 
-      <section id="plus" className={`${styles.section} ${styles.plusSection}`}>
+      <section ref={plusRef} id="plus" className={`${styles.section} ${styles.plusSection}`}>
         <div className={styles.sectionTitleBack}>Плюсы</div>
         <div className={styles.sectionTitleFore}>Плюсы</div>
         <div className={styles.plusList}>

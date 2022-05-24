@@ -3,6 +3,7 @@ import LandingClientsPage from './../pages/Landing/Clients';
 import LandingLawPage from './../pages/Landing/Law';
 import InstructionsPage from './../pages/Instructions/index';
 import BoardNavBar from './../components/BoardNavBar/index';
+import SidebarInstruction from './../components/SidebarInstruction';
 
 export const landingRoutes = [
   { 
@@ -34,7 +35,7 @@ export const landingRoutes = [
     Component: InstructionsPage,
     Title: '',
     Header: BoardNavBar,
-    Sidebar: null,
+    Sidebar: SidebarInstruction,
     authRequired: false
   }
 ]

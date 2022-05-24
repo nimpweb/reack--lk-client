@@ -1,4 +1,6 @@
-.selectContainer { }
+.selectContainer {
+  position: relative;
+ }
 
 .selectContainer .overlay {
   position: fixed;
@@ -116,15 +118,18 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  border: solid 1px silver;
+  border: solid 1px #0000000d;
+  border-top: none;
   width: 100%;
-  z-index: 100;
-  top: 120px;
+  z-index: 103;
+  top: 61px;
+  /* top: 120px; */
 }
 
 .selectListItem {
   background: white;
   padding: 10px;
+  text-align: left;
   cursor: pointer;
 }
 

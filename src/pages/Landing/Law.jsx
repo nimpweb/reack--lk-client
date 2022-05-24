@@ -2,7 +2,7 @@ import React from 'react'
 import { NavBar } from '../../components'
 import {Link} from 'react-router-dom';
 import cn from 'classnames';
-import styles from './landing.module.css'
+import styles from '../../styles/landing.module.css'
 
 
 export default function LawPage() {

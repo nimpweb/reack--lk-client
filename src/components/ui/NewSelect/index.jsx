@@ -28,7 +28,12 @@ export default function NewSelect({items, title, onChange}) {
     if (item && item.title) { text = item.title }
 
     setText(text);
-    onChange(item);
+    if (item.onSelect) {
+      return item.onSelect(item)
+    } else {
+      onChange(item);
+      return item;
+    }
   }
 
   const handleClearText = () => { 
@@ -54,16 +59,17 @@ export default function NewSelect({items, title, onChange}) {
         {(text && text.length > 0) && <Delete className={styles.arrowRemove} onClick={handleClearText} /> }
         {isActive ? <ArrowDropUp className={styles.arrow} /> : <ArrowDropDown className={styles.arrow} /> }
       </div>
-    </div>
-    <div className={styles.overlay}>
       <ul className={cn(styles.selectList, {[styles.active] : isActive})}>
         {data.map(item => (
           <li key={item.id} 
             className={styles.selectListItem} 
-            onClick={() => handleItemClick(item)}
+            onClick={ () => item.click ? item.click() : handleItemClick(item)}
           >{item.value ? item.value : item.title}</li>
         ))}
       </ul>
+    </div>
+    <div className={styles.overlay}>
+      
     </div>
     </>
   )

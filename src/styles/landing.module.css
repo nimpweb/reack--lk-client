@@ -77,6 +77,12 @@ html {
   text-decoration: none;
   margin-right: 50px;
   font-weight: 600;
+  transition: .25s ease;
+  cursor: pointer;
+}
+
+.headerMenuLink:hover {
+  color: var(--second-color);
 }
 
 .headerMenuLink:last-child {

@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './layout.module.css'
 
 export default function Layout({children, ...props}) {
   let style = {display: 'flex'}
@@ -11,7 +12,7 @@ export default function Layout({children, ...props}) {
   if (props.border) { style = {...style, border: props.border } }
   if (props.borderRounded) {style = {...style, borderRadius: props.borderRounded}}
 
-  return <div style={style}>
+  return <div className={s.rootDiv} style={style}>
     {children}
   </div>;
 }

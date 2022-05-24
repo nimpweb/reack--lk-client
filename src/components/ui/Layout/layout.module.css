@@ -1,0 +1,7 @@
+.rootDiv {
+  transition: .5s ease;
+}
+
+.rootDiv:hover {
+  box-shadow: 0 0 10px rgba(100, 100, 100, .2);
+}

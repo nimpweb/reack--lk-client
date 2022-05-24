@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import sl from "../Landing/landing.module.css"
+import PageTitle from './../../components/PageTitle';
 import s from './news.module.css'
 
 const NewsPage = props => {
@@ -11,13 +11,9 @@ const NewsPage = props => {
 
   return (
     <>
-      <section>
-        <div className={sl.sectionTitleBack}>Новости</div>
-        <div className={sl.sectionTitleFore}>Новости</div>
-      </section>
-      <div className={s.newsContainer}>
+      <PageTitle title="Новости" />
 
-      
+      <div className={s.newsContainer}>
         <div className={s.newsItem}>
           <div className={s.header}>
             <div className={s.title}>Запуск личного кабинета в СК</div>
