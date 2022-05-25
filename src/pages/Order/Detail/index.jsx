@@ -138,13 +138,19 @@ export default function OrderDetailPage() {
         createdAt: '08.01.2022',
       },
     ],
+    appeals: [
+      { id: 111, number: '3056/896', date: '25.05.2022 в 12:12', text: 'Прошу Вас разъяснить причину отказа в оформление технологического присоединения' }
+    ]
   };
+
+  const Noop = () => <div>Nothing has in this compoennt</div>
 
   const tabItems = [
     {title: 'Документы', component: () => DocumentComponent(order.documents)}, 
     {title: 'События', component: () => EventsComponent( {events: order.actions} )}, 
     {title: 'Детали заявки', component: () => CartComponent({ data: {} })},
-    {title: 'Выписанные счета', component: () => SchetComponent(order.schet)}
+    {title: 'Выписанные счета', component: () => SchetComponent(order.schet)},
+    {title: 'Обращения', component: () => <Noop /> }
   ];
 
   const handleCreateAppeal = (orderId) => {

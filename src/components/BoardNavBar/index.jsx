@@ -16,7 +16,7 @@ export default function BoardNavBar() {
     <Navbar>
       <div className={styles.headerBar}>
         <div className={styles.logo}>
-          <img className={styles.logoImage} src="/images/webstudio56.png" alt="" />
+          <Link to="/"><img className={styles.logoImage} src="/images/webstudio56.png" alt="" /></Link>
         </div>
         <div className={styles.headerMenu}>
           <Button onClick={() => history.push('/order/create')} style={{marginRight: 40}}>Подать заявку на ТП</Button>
