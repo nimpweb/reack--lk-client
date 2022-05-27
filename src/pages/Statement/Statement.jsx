@@ -16,6 +16,8 @@ const Statement = () => {
             { id: 2, value: '111' },
           ]}
         />
+
+        <br /><br /><sup><p className="muted-text text-center">Находится в стадии разработки</p></sup>
       </div>
     </Page>
   )

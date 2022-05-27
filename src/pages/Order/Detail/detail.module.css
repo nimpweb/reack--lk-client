@@ -2,6 +2,31 @@
 
 }
 
+.donwloadFileList {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  list-style-type: none;
+}
+
+.downloadFileLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--hover-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding-top: 10px;
+  /* justify-content: center; */
+  margin-left: 10px;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.downloadFileLink:hover {
+  transform: scale(1.05);
+}
 .orderDetailWarningMessage {
   color: cadetblue;
   background-color: rgba(200, 200, 200, .2);

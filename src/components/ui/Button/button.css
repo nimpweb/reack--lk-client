@@ -9,9 +9,17 @@
   letter-spacing: .9px;
   text-transform: uppercase;
   font-size: 12px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .4);
+    user-select: none;
   cursor: pointer;
 }
 
+.btn:disabled {
+  background-color: silver;
+  box-shadow: none;
+  color: gray;
+  cursor: default;
+}
 .btn.normal {
   padding: 6px 12px;
 }
@@ -36,7 +44,7 @@
   -o-border-radius: 50%;
 }
 
-.btn:hover {
+.btn:hover:not(:disabled) {
   background-color: #333;
 }
 
@@ -44,8 +52,9 @@
   background-color: rgb(202, 202, 202, .3) !important;
 }
 
-.btn:active {
+.btn:active:not(:disabled) {
   transform: translateY(2px);
+  box-shadow: none;
 }
 
 .btn svg {

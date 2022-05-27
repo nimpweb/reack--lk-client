@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Confirm, Modal, Tabs, Button } from '../../../components/ui';
 import cn from 'classnames';
 import styles from './detail.module.css';
-import { AddLink, Done, DeleteForever, DoNotDisturb } from '@mui/icons-material';
+import { AddLink, Done, DeleteForever, DoNotDisturb, PictureAsPdf } from '@mui/icons-material';
 import DocumentComponent from './DocumentComponent';
 import EventsComponent from './EventsComponent';
 import CartComponent from './CartComponent';
@@ -179,16 +179,18 @@ export default function OrderDetailPage() {
 
             <hr />
             <div className={styles.actionsContainer}>
-              <ul className="list">
-                <li className="list-item">
-                  <a download href="/">
+              <ul className={styles.donwloadFileList}>
+                <li>
+                  <span className={styles.downloadFileLink}>
+                    <PictureAsPdf />
                     Сформировать заполненную заявку на технологическое присоединение в формате PDF
-                  </a>
+                  </span>
                 </li>
-                <li className="list-item">
-                  <a download href="/">
+                <li>
+                  <span className={styles.downloadFileLink}>
+                    <PictureAsPdf />
                     Сформировать согласие субъекта на обработку персональных данных
-                  </a>
+                  </span>
                 </li>
               </ul>
               <div className={styles.buttonsContainer}>

@@ -11,6 +11,7 @@ export default function Layout({children, ...props}) {
   style = {...style, padding: props.padding ? props.padding : '0'}
   if (props.border) { style = {...style, border: props.border } }
   if (props.borderRounded) {style = {...style, borderRadius: props.borderRounded}}
+  if (props.noBoxShadow) { style = {...style, boxShadow: 'none '} }
 
   return <div className={s.rootDiv} style={style}>
     {children}
