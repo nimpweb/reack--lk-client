@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Card } from '../../ui'
 import { Delete, Edit } from '@mui/icons-material'
+import SmtpContainer from './SmtpContainer'
 import './notifications.css'
 
 export default function Notifications() {
@@ -118,26 +119,7 @@ export default function Notifications() {
         </Card>
       )}
 
-      <Card title="Настройка сервиса отправки электронной почты" mt={20}>
-        <div className="smtpWrapper">
-          {Object.keys(smtpService).length > 0 
-            ? (
-              <>
-              <p>Текст заголовка сообщения: <strong>{smtpService.subject}</strong></p>
-              <p>Почтовый сервер: <strong>{smtpService.host}:{smtpService.port}</strong></p>
-              <p>Логин: <strong>{smtpService.login}</strong></p>
-              <p>Метод шифрования: <strong>{smtpService.encryption}</strong></p>
-              </>
-            )
-            : (<p className="muted-text">Сервис отправки электронных писем не настроен</p>)
-          }
-          <br />
-          <div className="buttons">
-            <Button color="green" disabled={Object.keys(smtpService).length === 0} >Отправить тестовое письмо</Button>
-            <Button>Настройка сервиса</Button>
-          </div>
-        </div>
-      </Card>
+      <SmtpContainer service={smtpService} />
 
       <Card title="Настройка сервиса SMS-уведомлений" mt={20}>
         <div className="smsWrapper">

@@ -2,15 +2,17 @@ import React, {useState} from 'react'
 import { Confirm, Modal, Tabs, Button } from '../../../components/ui';
 import cn from 'classnames';
 import styles from './detail.module.css';
-import { AddLink, Done, DeleteForever, DoNotDisturb, PictureAsPdf } from '@mui/icons-material';
+import { AddLink, Done, DeleteForever, DoNotDisturb, PictureAsPdf, PublishedWithChanges } from '@mui/icons-material';
 import DocumentComponent from './DocumentComponent';
 import EventsComponent from './EventsComponent';
 import CartComponent from './CartComponent';
 import SchetComponent from './SchetComponent';
+import NewSelect from './../../../components/ui/NewSelect/index';
 
 export default function OrderDetailPage() {
 
   const [modalCancelOrder, setModalCancelOrder ] = useState(false);
+  const [modalSk, setModalSk] = useState(false)
   
   const order = {
     id: 456,
@@ -174,8 +176,8 @@ export default function OrderDetailPage() {
             {order.stateText && <p className={styles.detailText}>Статус заявки: <span>{order.statusText}</span></p>}
             <p className={styles.detailText}>Создана: <span>{order.createdAt}</span></p>
             <p className={styles.detailText}>Действительна до: <span>{order.finishedAt}</span></p>
-            {order.networkCompany && <p className={styles.detailText}>Сетевая компания: <span>{order.networkCompany.title}</span></p>}
-            {order.gp && <p className={styles.detailText}>Гарантирующий поставщик: <span>{order.gp.title}</span></p>}
+            {order.networkCompany && <p className={styles.detailText}>Сетевая компания: <span>{order.networkCompany.title}</span><Button variant="icon" onClick={() => setModalSk(true)}><PublishedWithChanges /></Button></p>}
+            {order.gp && <p className={styles.detailText}>Гарантирующий поставщик: <span>{order.gp.title}</span><Button variant="icon"><PublishedWithChanges /></Button></p>}
 
             <hr />
             <div className={styles.actionsContainer}>
@@ -214,6 +216,21 @@ export default function OrderDetailPage() {
                     <Button color="red"><Done />Да</Button>
                     <Button onClick={() => setModalCancelOrder(false)}><DoNotDisturb />Нет</Button>
                   </div>
+                </Modal>
+              )
+            }
+
+            {
+              modalSk && (
+                <Modal title="Изменить Сетевую компанию" onClose={() => setModalSk(false)} width={500}>
+                  <NewSelect
+                    items={[
+                      { id: 333, value: 'ООО "Лето в европе' },
+                      { id: 232, value: 'ОАО "Дело в пенькове' },
+                    ]}
+                  />
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi beatae quisquam sed quos dolorem eaque quas nobis labore nisi, molestiae placeat? Ratione at iure corporis, corrupti minus quis id a.
+                  Labore suscipit consequuntur sed nostrum ipsum fugiat ut maiores voluptate quaerat enim repellat recusandae possimus praesentium veniam, tempora modi deleniti eaque obcaecati dolorem error sunt omnis qui, magni corporis? Similique.
                 </Modal>
               )
             }

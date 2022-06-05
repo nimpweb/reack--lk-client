@@ -47,7 +47,7 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
       { ({values}) => {
         return (
           <Form>
-            <PageTitle title={`Шаг 1 из ${totalSteps}: ${currentStep.props.title}`} />
+            <PageTitle title={`Шаг ${currentStepIndex+1} из ${totalSteps}: ${currentStep.props.title}`} />
             { currentStep }
             <WizardNavigationForm  
               hasPrevious={currentStepIndex > 0 } 

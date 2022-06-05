@@ -1,47 +1,11 @@
 import { PushPin, Remove, Delete, Download, AssignmentTurnedIn, Add, AttachFile, Info } from '@mui/icons-material';
-import React, { useState } from 'react'
+import React, { useEffect, useCallback, useState } from 'react'
 import Button from './../../components/ui/Button/index';
 import Modal from './../../components/ui/Modal/index';
+import { documents } from '../../redux/db'
 
-const documentList = [
-  {
-    id: 1,
-    documentId: 1,
-    title: 'Документ удостоверяющий личность заявителя',
-    description: 'Паспорт заявителя или иной документ удостоверяющий личность'
-  },
-  {
-    id: 2,
-    documentId: 2,
-    title: 'Документ, подтверждающий полномочия представителя заявителя',
-    description: 'Доверенность, приказ о назначении или иной документ подтверждающий полномочия представителя заявителя действовать от другого лица или группы лиц'
-  }
-];
-
-const docs = [
-  {
-    id: 1,
-    title: 'Документ удостоверяющий личность заявителя',
-    description: 'Паспорт заявителя или иной документ удостоверяющий личность'
-  },
-  {
-    id: 2,
-    title: 'Документ, подтверждающий полномочия представителя заявителя',
-    description: 'Доверенность, приказ о назначении или иной документ подтверждающий полномочия представителя заявителя действовать от другого лица или группы лиц'
-  },
-  {
-    id: 3,
-    title: 'План расположения энергопринимающих устройств',
-    description: 'План расположения энергопринимающих устройств, которые необходимо присоединить к электрическим сетям сетевой организации'
-  },
-  {
-    id: 4,
-    title: 'Копия документа подтверждающего право сообственности',
-    description: 'Копия документа, подтверждающего право собственности или иное предусмотренное законом основание на объект капитального строительства (нежилое помещение в таком объекте капитального строительства) и (или) земельный участок, на котором расположены (будут располагаться) объекты заявителя, либо право собственности или иное предусмотренное законом основание на энергопринимающие устройства (для заявителей, планирующих осуществить технологическое присоединение энергопринимающих устройств потребителей, расположенных в нежилых помещениях многоквартирных домов или иных объектах капитального строительства, - копия документа, подтверждающего право собственности или иное предусмотренное законом основание на нежилое помещение в таком многоквартирном доме или ином объекте капитального строительства)'
-  }
-]
-
-function AddDocumentModal({ setModal  }) {
+function AddDocumentModal({ setModal, documentItems  }) {
+  
   const handleAddNewDoc = () => console.log('do add new doc')  
   return (
     <Modal 
@@ -58,7 +22,7 @@ function AddDocumentModal({ setModal  }) {
       </div>
       <div className="profileDocumentList">
         {
-          docs.map(doc => (
+          documentItems.map(doc => (
             <div key={doc.id} className="profileFileListItem" onClick={handleAddNewDoc}> 
               <AttachFile className="profileFileListItemIcon" />
               <div className="profileFileListItemContent">
@@ -75,7 +39,16 @@ function AddDocumentModal({ setModal  }) {
 }
 
 function AddDocumentContainer() {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
+  const [docs, setDocs] = useState([]);
+
+  const getDocs = useCallback(() => documents().filter( doc => ( doc.storedAtProfile === true )));
+
+  useEffect(() => {
+    console.log('documents', documents())
+    setDocs(getDocs())
+  }, [])
+
 
   return (
     <div className="profileDocumentContainer">
@@ -87,9 +60,9 @@ function AddDocumentContainer() {
       </div>
       <div className="profileDocumentList">
         { 
-          (documentList.length > 0)
-          ? documentList.map(item => (
-            <ListItem key={item.id} title={item.title} description={item.description} filename={item.filename} />
+          (docs.length > 0)
+          ? docs.map(item => (
+            <ListItem key={item.id} title={item.title} description={item.description}  />
           ))
           : (
             <>
@@ -103,12 +76,12 @@ function AddDocumentContainer() {
       <div className="profileDocumentInfo">
         Документы прикладывайте в хорошем качестве, читаемые однозначно понимаемые, без фотографий рук, ног и т.п.
       </div>
-      { modal && <AddDocumentModal  setModal={setModal} /> }
+      { modal && <AddDocumentModal documentItems={docs}  setModal={setModal} /> }
     </div>
   )
 }
 
-function ListItem({ title, description, filename }) {
+function ListItem({ title, description }) {
   return (
     <div className="profileFileListItem">
       <PushPin className="profileFileListItemIcon" />

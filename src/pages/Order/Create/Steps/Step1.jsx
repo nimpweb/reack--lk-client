@@ -1,14 +1,12 @@
-import React, { useEffect, useCallback,  useState } from 'react'
-import { NavigateNext, NavigateBefore, Report } from '@mui/icons-material';
+import React, { useCallback,  useState } from 'react'
+import { Report } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { NewInput, Button, Checkbox, Layout } from '../../../../components/ui'
-import { Formik, Form, Field } from 'formik'
+import {  Checkbox, Layout } from '../../../../components/ui'
+import { Field } from 'formik'
 import styles from '../create.module.css'
 import NewSelect from './../../../../components/ui/NewSelect/index';
-import { useDispatch, useSelector } from 'react-redux';
-import { prevStep, nextStep, pushStep } from '../../../../redux/slices/orderCreate'
-import InputField from './components/InputField'
-import LabelField from './components/LabelField'
+import InputField from '../../../../components/InputField'
+import LabelField from './../../../../components/LabelField';
 
 const profile = {
   firstName: 'Нестеров',

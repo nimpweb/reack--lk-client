@@ -1,9 +1,10 @@
 import React from 'react'
 import { Card } from '../../../components/ui';
 import { Link, useHistory } from 'react-router-dom';
-import {Add,  DoneAll, SmsFailed} from '@mui/icons-material';
+import {Add,  AlarmOn,  DoneAll, Keyboard, SmsFailed, ThumbUpAltOutlined, ThumbDownAltOutlined} from '@mui/icons-material';
 import { Loader } from '../../../components/Loading';
 import styles from './orderlist.module.css'
+import Workflow from './Workflow';
 
 
 export default function OrderListPage() {
@@ -85,6 +86,7 @@ export default function OrderListPage() {
                       <div className={styles.orderListItemText}>{order.typeTitle}</div>
                       <div className={styles.orderListItemText}><span className={styles.failed}>{order.statusTitle}</span>&nbsp;&nbsp;<span className={styles.muted}>обновлено: {order.statusDate}</span> </div>
                     </div>
+                    <Workflow  />
                     <div className={styles.orderListItemDate}>{order.createdAt}</div>
                   </div>
                   <div className={styles.order}>

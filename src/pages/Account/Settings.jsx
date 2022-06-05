@@ -5,6 +5,7 @@ import Button from '../../components/ui/Button';
 import { Tabs } from '../../components/ui';
 import { Common, Notifications, Modules } from '../../components/Pages/Settings';
 import { useSelector } from 'react-redux';
+import SmtpContainer from './SmtpContainer'
 
 export default function SettingsPage() {
 
@@ -72,25 +73,7 @@ export default function SettingsPage() {
           </div>
         </Card>
 
-        <Card title="Настройка отправки электронных писем">
-          <p>
-            Почтовый сервер: <strong>stmp.yandex.ru:465</strong>
-          </p>
-          <p>
-            Логин: <strong>a89875645</strong>, пароль: <strong>************</strong>
-          </p>
-          <hr />
-          <div className="d-flex d-flex-cb">
-            <Button variant="default">
-              <CheckBox />
-              &nbsp;&nbsp;<span>Проверить</span>
-            </Button>
-            <Button variant="success">
-              <ChangeCircle />
-              &nbsp;&nbsp;<span>Изменить</span>
-            </Button>
-          </div>
-        </Card>
+       <SmtpContainer /> 
 
         <Card title="Настройка отправки SMS-сообщений">
           <div>

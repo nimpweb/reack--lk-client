@@ -314,6 +314,9 @@
   margin: 10px 0;
   font-weight: 300;
   color: var(--third-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .detailText span {

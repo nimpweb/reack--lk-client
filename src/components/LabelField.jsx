@@ -1,11 +1,12 @@
 import {Field, useField} from 'formik'
-import s from '../../../../../styles/form.module.css'
+import s from '../styles/form.module.css'
 
-const LabelField = ( { title, subTitle=null, fieldName, value } ) => {
+const LabelField = ( { title, subTitle=null, fieldName, value, ...props } ) => {
+  const [field, meta] = useField(props)
   return (
     <>
       <div className={s.dataText}><span>{ title }:</span>{value} { subTitle  && <span className={s.dataTextComment}> / {subTitle}</span>} </div>
-      <Field name={fieldName} type="hidden" value={value} />
+      <Field name={fieldName} type="hidden" {...field} value={value} />
     </>
   )
 }
