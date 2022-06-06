@@ -56,7 +56,7 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li>
-                <Link to="/account/list" className={`sidebarListItem ${location.pathname === '/account/list' && ' active'}`}>
+                <Link to="/dictionaries/sk" className={`sidebarListItem ${location.pathname === '/dictionaries/sk' && ' active'}`}>
                   <LocationCity className="sidebarIcon" /> Сетевые компании
                 </Link>
               </li>

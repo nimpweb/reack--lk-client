@@ -15,6 +15,9 @@ export default function SidebarInstruction() {
         <div className="sidebarWrapper">
 
           <div className="sidebarMenu">
+            <ul className="sidebarList">
+              <li className="sidebarListItem">Добро пожаловать!!!</li>
+            </ul>
             <h3 className="sidebarTitle">Настройки системы</h3>
             <ul className="sidebarList">
               <li className="sidebarListItem">

@@ -5,7 +5,15 @@ import { authRoutes } from "./authRoutes";
 import { appealRoutes } from "./appealRoutes";
 import { newsRoutes } from './newsRoutes';
 import { statementRoutes } from './statementRoutes';
+import { dictionariesRoutes } from './dictionariesRoutes';
 
 export const Routes = [
-  ...landingRoutes,  ...accountRoutes, ...orderRoutes, ...authRoutes, ...appealRoutes, ...newsRoutes, ...statementRoutes
-]
+  ...landingRoutes,
+  ...accountRoutes,
+  ...orderRoutes,
+  ...authRoutes,
+  ...appealRoutes,
+  ...newsRoutes,
+  ...statementRoutes,
+  ...dictionariesRoutes,
+];

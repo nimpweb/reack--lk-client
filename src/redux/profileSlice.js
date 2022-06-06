@@ -16,6 +16,14 @@ export const profileSlice = createSlice({
       firstName: 'Нестеров',
       middleName: 'Максим',
       lastName: 'Петрович',
+      documents: [],
+      accountPoint: [
+        {
+          id: 89880,
+          address: '460000, Оренбургская область, г.Оренбург, ул.Советская, д.60, кв.75',
+          num: '071181',
+        },
+      ],
     },
     pending: false,
     error: false,
