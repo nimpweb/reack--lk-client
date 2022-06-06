@@ -52,9 +52,6 @@ function AddDocumentContainer() {
 
   return (
     <div className="profileDocumentContainer">
-      <div className="text-center">
-        <h3>Ваши документы</h3>
-      </div>
       <div style={{paddingBottom: 20, display: 'flex', justifyContent: 'center'}}>
           <Button onClick={()=> setModal(true)}><Add /> Добавить</Button>
       </div>

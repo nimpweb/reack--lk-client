@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link }  from 'react-router-dom'
-import { Page } from '../../components/ui'
+import { FloatButton, Page } from '../../components/ui'
 import VMTable from '../../components/ui/ViewTable'
 import s from './dictionaries.module.css'
+import { PlusOne } from '@mui/icons-material';
 
 const skInitialList = [
   { id: 1111, title: 'ООО "Сетевые решения', balance: 5679.56, tarifPerDay: 112.64 },
@@ -29,8 +30,8 @@ const SkDictionaryList = () => {
               columns={[
                 { title: 'ID', width: 70 },
                 { title: 'Наименование СО' },
-                { title: 'Баланс' },
-                { title: 'Период действия' },
+                { title: 'Баланс', width: 100 },
+                { title: 'Период действия', width: 150 },
               ]}
               options={{
                 filtered: true
@@ -39,6 +40,10 @@ const SkDictionaryList = () => {
           )
         : <p className="text-center">Сетевых компаний не обнаружено. <Link to={`/dictinaries/sk/create`}>Добавь</Link> первую</p>
       }
+
+      <FloatButton onClick={() => alert('ok')}>
+        <PlusOne />
+      </FloatButton>
       
     </Page>
   )

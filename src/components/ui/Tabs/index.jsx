@@ -8,10 +8,8 @@ export default function Tabs(props) {
   // const [selectedItem, setSelectedItem] = React.useState({});
 
   const selectedItem = useMemo(() => items[selectedIndex], [selectedIndex, items]);
-  // React.useEffect(() => {
-  //   setSelectedItem(items[selectedIndex])
-  // }, [selectedIndex, items])
-  return (<>
+
+return (<>
     {(items && items.length > 0) 
       ? (
         <div className="tabs">
