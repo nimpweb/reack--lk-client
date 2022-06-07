@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { Form, Formik } from 'formik'
 import InputField from '../../components/InputField'
 import { Button, Checkbox } from '../../components/ui'
 import s from './dictionaries.module.css'
-import { objectAsArray } from '../../utils/functions'
 import { Cancel, DoneAll } from '@mui/icons-material'
 import { Loading } from '../../components'
 
@@ -37,7 +36,7 @@ const daysInThisMonth = () => {
 
 const ModulesContainer = ( { modules, setValue } ) => {
   const [modulesSelected, setModulesSelected] = useState([]);
-  const totalPrice = useCallback(() => objectAsArray(modulesSelected).reduce((total, current) => {
+  const totalPrice = useCallback(() => modulesSelected.reduce((total, current) => {
     return total + modules.find(m => m.id===current).pricePerDay
   }, 0), [modulesSelected]);
 
@@ -68,6 +67,9 @@ const ModulesContainer = ( { modules, setValue } ) => {
 const SkDictionaryAdd = () => {
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+  const location = useLocation()
+  const initValues = location.state ? location.state : initialValues
+
   const timer = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const handleSubmit = async (values) => {
     setLoading(true)
@@ -80,8 +82,8 @@ const SkDictionaryAdd = () => {
 
   return (
     <div style={{position: 'relative'}}>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        { ({ values, setFieldValue } ) => (
+      <Formik initialValues={initValues} onSubmit={handleSubmit}>
+        { ({ setFieldValue } ) => (
           <Form>
             <InputField name="title" title="Наименование сетевой организации" />
             <div className="d-flex-group">

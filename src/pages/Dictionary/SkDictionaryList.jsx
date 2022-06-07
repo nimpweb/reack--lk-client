@@ -23,6 +23,7 @@ const SkDictionaryList = () => {
   }, [])
 
   const handlePushAddButton = () => history.push('/dictionaries/sk/add')
+  const handleBrowseButton = (item) => history.push('/dictionaries/sk/add', item)
 
   return (
     <Page>
@@ -40,7 +41,7 @@ const SkDictionaryList = () => {
               options={{
                 filtered: true
               }}
-              onRowClick={ (id) => console.log('SK_ID: ', id) }
+              onRowClick={ (item) => handleBrowseButton(item) }
             />
           )
         : <p className="text-center">Сетевых компаний не обнаружено. <Link to={`/dictinaries/sk/create`}>Добавь</Link> первую</p>

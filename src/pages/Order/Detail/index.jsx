@@ -7,6 +7,7 @@ import DocumentComponent from './DocumentComponent';
 import EventsComponent from './EventsComponent';
 import CartComponent from './CartComponent';
 import SchetComponent from './SchetComponent';
+import AppealsComponent from './AppealsComponent';
 import NewSelect from './../../../components/ui/NewSelect/index';
 
 export default function OrderDetailPage() {
@@ -152,7 +153,7 @@ export default function OrderDetailPage() {
     {title: 'События', component: () => EventsComponent( {events: order.actions} )}, 
     {title: 'Детали заявки', component: () => CartComponent({ data: {} })},
     {title: 'Выписанные счета', component: () => SchetComponent(order.schet)},
-    {title: 'Обращения', component: () => <Noop /> }
+    {title: 'Обращения', component: () => AppealsComponent() }
   ];
 
   const handleCreateAppeal = (orderId) => {
