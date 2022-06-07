@@ -16,5 +16,26 @@ import Confirm from './Confirm'
 import Layout from './Layout'
 import AccordeonBlock from './AccordeonBlock'
 import Toast from './Toast';
+import Loading from './Loading';
 
-export { Card, Input, NewInput, NewSelect, Button, Modal, Tabs, Select, Page, Panel, Chart, FloatButton, Checkbox, RadioList, Confirm, Layout, AccordeonBlock, Toast };
+export {
+  Card,
+  Input,
+  NewInput,
+  NewSelect,
+  Button,
+  Modal,
+  Tabs,
+  Select,
+  Page,
+  Panel,
+  Chart,
+  FloatButton,
+  Checkbox,
+  RadioList,
+  Confirm,
+  Layout,
+  AccordeonBlock,
+  Toast,
+  Loading,
+};

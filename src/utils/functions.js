@@ -23,3 +23,14 @@ export const redirectLinkOnAuth = () => {
   }
   return '/auth';
 };
+
+
+export const objectAsArray = (obj) => {
+  let array = new Array();
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      array.push({ [key]: obj[key] });
+    }
+  }
+  return array;
+};

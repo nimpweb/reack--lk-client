@@ -114,6 +114,9 @@ a:hover {
   width: 100%;
 }
 
+.d-gap-15 {
+  gap: 15px;
+}
 .d-flex-column {
   flex-direction: column;
 }
@@ -122,6 +125,16 @@ a:hover {
   flex: 1;
 }
 
+.d-flex-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.d-flex-group>* {
+  flex: 1;
+}
 
 
 .d-flex-align-center {

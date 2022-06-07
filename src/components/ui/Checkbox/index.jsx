@@ -16,7 +16,7 @@ export default function Checkbox({title, name, value, onChange, type = 'checkbox
 
   return (
     <label className={styles.checkbox}>
-      <input type={type} name={name} checked={checked} value={value} onChange={handleChange}/>
+      <input type={type} name={name} checked={checked} onChange={handleChange}/>
       <span>
           <svg width="12px" height="10px" viewBox="0 0 12 10">
               <polyline points="1.5 6 4.5 9 10.5 1"></polyline>

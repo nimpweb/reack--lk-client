@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { objectAsArray } from '../../../utils/functions'
 import s from './ViewTable.module.css'
 
 export const ViewTableRow = ( { children, ...props } ) => {
@@ -16,48 +17,28 @@ export const ViewTableCol = ( { children, type = '', ...props } ) => {
   if (props.width) {
     styles.maxWidth = `${props.width}px`;
   }
-
-  console.log('CLASS_NAMES', classNames);
   return (<div className={`${s.ViewTableCol} ${classNames.length > 0 && classNames.map(cl => s[cl])}`} { ...props } style={ styles } >{ children }</div>)
 }
 
-const ViewTable = ( { children, ...props } ) => {
-  return (
-    <div className={s.ViewTable}>
-      { children }
-    </div>
-  )
-}
+const ViewTableFilterRow = ( { onFilter } ) => {
 
-const ViewTableFilterRow = ( {} ) => {
+  const handleFilterChange = (e) => {
+
+  }
+
   return (
     <ViewTableRow>
       <div className={s.FilterInputBlock}>
-        <input type="text" className={s.FilterInput}  placeholder="Введите значение чтобы осуществить поиск" />
+        <input type="text" className={s.FilterInput}  placeholder="Введите значение чтобы осуществить поиск" onChange={handleFilterChange} />
       </div>
     </ViewTableRow>
   )
 }
 
-const VMTable = ( { items, columns, options } ) => {
-  const objectAsArray = (obj) => {
-    let array = [];
-    for (let key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        array[key] = obj[key]
-      }
-    }
-    return array;
-  }
+const VMTable = ( { items, columns, options, ...props } ) => {
+  const [data, setData] = useState(items);
 
-  const renderSimpleArray = (array) => {
-    let mas = [];
-    for ( let x=0; x < array.length; x++) {
-      mas.push(<ViewTableCol>array[x]</ViewTableCol>)
-    }
-    return mas;
-  }
-
+  const handleRowClick = (sk) => props.onRowClick(sk) || (() => {})
   return (
     <div className={s.ViewTable}>
       <ViewTableRow>
@@ -67,12 +48,13 @@ const VMTable = ( { items, columns, options } ) => {
         </ViewTableCol>
       )) }
       </ViewTableRow>
-      { options.filtered && <ViewTableFilterRow />}
+      { options.filtered && <ViewTableFilterRow onFilter={ (newData) => setData(newData)} />}
 
-      { items.map( (item, index) => {
-        const data = objectAsArray(item);
-        renderSimpleArray(data).forEach(Component => <Component />)
-       
+      { data.map( item => {
+        return (<ViewTableRow onClick={() => handleRowClick(item)}>
+          { columns.map(c => <ViewTableCol width={c?.width}>{item[c.field]}</ViewTableCol>) }
+        </ViewTableRow>)
+
       })}
 
     </div>

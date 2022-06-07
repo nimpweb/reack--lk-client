@@ -7,6 +7,7 @@ import { updateUser } from '../../redux/slices/user';
 import { getMe } from './../../redux/slices/user';
 import './profile.css'
 import AddDocumentContainer from './AddDocumentContainer';
+import PointsContainer from './PointsContainer';
 import Tabs from './../../components/ui/Tabs/index';
 
 export default function ProfilePage(props) {
@@ -77,7 +78,7 @@ export default function ProfilePage(props) {
         <br /><br />
         <Tabs selected={0} items={[
           {title: 'Ваши документы',component: AddDocumentContainer},
-          {title: 'Точки учета', component: null}
+          {title: 'Точки учета', component: PointsContainer}
         ]} />
       </Card>
       </div>
