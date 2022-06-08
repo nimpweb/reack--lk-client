@@ -48,7 +48,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background: var(--blue-color);
+  background: var(--second-color);
   display: block;
   transform: scale(0);
   opacity: 1;
@@ -59,11 +59,11 @@
   text-align: justify;
 }
 .checkbox:hover span:nth-child(2){
-  border-color: var(--blue-color);
+  border-color: var(--second-color);
 }
 .checkbox input:checked + span:nth-child(2){
-  background: var(--blue-color);
-  border-color: var(--blue-color);
+  background: var(--second-color);
+    border-color: var(--second-color);
   animation: wave .4s ease;
 }
 .checkbox input:checked + span:nth-child(2) svg{

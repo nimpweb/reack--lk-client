@@ -6,10 +6,10 @@ import s from '../styles/instruction.module.css'
 import { Link, useLocation } from 'react-router-dom';
 
 export default function SidebarInstruction() {
+  const location = useLocation()
   const user = {
     role: 'root'
   }
-  const location = useLocation();
   return (
     <div className="sidebar">
         <div className="sidebarWrapper">
@@ -20,8 +20,14 @@ export default function SidebarInstruction() {
             </ul>
             <h3 className="sidebarTitle">Настройки системы</h3>
             <ul className="sidebarList">
-              <li className="sidebarListItem">
-                <MarkEmailUnread className="sidebarIcon" /> Настройка почтовой рассылки
+              <li>
+                <Link 
+                  className={`sidebarListItem ${location.pathname === '/instruction/admin/smtp-setup' && ' active'}`} 
+                  to="/instruction/admin/smtp-setup">
+                    <MarkEmailUnread className="sidebarIcon" 
+                  /> 
+                  Настройка почтовой рассылки
+                </Link>
               </li>
               <li className="sidebarListItem">
                 <Sms className="sidebarIcon" /> Подключение SMS-рассылки

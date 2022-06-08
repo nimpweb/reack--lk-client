@@ -6,7 +6,7 @@ import s from './dictionaries.module.css'
 import { PlusOne } from '@mui/icons-material';
 
 const skInitialList = [
-  { id: 1111, title: 'ООО "Сетевые решения', balance: 5679.56, pricePerDay: 112.64 },
+  { id: 1111, title: 'ООО "Сетевые решения',   inn: 'ИНН', kpp: 'КПП', bik: 'БИК', balance: 5679.56, pricePerDay: 112.64 },
   { id: 12112, title: 'ООО "КЭС Оренбуржья"', balance: 765.11, pricePerDay: 112.64 },
 
 ]

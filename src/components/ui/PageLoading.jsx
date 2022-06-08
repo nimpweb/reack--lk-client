@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-const Loading = ( { visible } ) => {
+const PageLoading = ( { visible } ) => {
   return (
     <>
     { visible && (
@@ -66,4 +66,4 @@ const Spinner = styled.span`
   z-index: 12;
 `
 
-export default Loading
+export default PageLoading

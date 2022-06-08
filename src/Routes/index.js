@@ -6,6 +6,7 @@ import { appealRoutes } from "./appealRoutes";
 import { newsRoutes } from './newsRoutes';
 import { statementRoutes } from './statementRoutes';
 import { dictionariesRoutes } from './dictionariesRoutes';
+import { instructionsRoutes } from './instructionsRoutes';
 
 export const Routes = [
   ...landingRoutes,
@@ -16,4 +17,5 @@ export const Routes = [
   ...newsRoutes,
   ...statementRoutes,
   ...dictionariesRoutes,
+  ...instructionsRoutes,
 ];

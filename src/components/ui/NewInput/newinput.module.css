@@ -9,6 +9,7 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  display: flex;
 }
 
 .input input {
@@ -63,4 +64,41 @@
   -moz-transform: translateY(-15px) scale(.75);
   -ms-transform: translateY(-15px) scale(.75);
   -o-transform: translateY(-15px) scale(.75);
+}
+.inputButton {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  padding: 2px 4px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  transition: .4s ease;
+  -webkit-transition: .4s ease;
+  -moz-transition: .4s ease;
+  -ms-transition: .4s ease;
+  -o-transition: .4s ease;
+  z-index: 10;
+}
+
+.inputButton:hover {
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+}
+
+
+.inputButton:focus {
+  transform: translateY(+2px);
+  -webkit-transform: translateY(+2px);
+  -moz-transform: translateY(+2px);
+  -ms-transform: translateY(+2px);
+  -o-transform: translateY(+2px);
 }

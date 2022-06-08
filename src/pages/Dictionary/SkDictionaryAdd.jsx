@@ -4,12 +4,13 @@ import { Form, Formik } from 'formik'
 import InputField from '../../components/InputField'
 import { Button, Checkbox } from '../../components/ui'
 import s from './dictionaries.module.css'
-import { Cancel, DoneAll } from '@mui/icons-material'
+import { Cancel, DoneAll, ManageSearch } from '@mui/icons-material'
 import { Loading } from '../../components'
+import axios from 'axios'
 
 const initialValues = {
   title: 'ООО "Рога и копыта"',
-  inn: '56778899',
+  inn: '5609032664',
   kpp: '123654',
   bik: '105',
   addr_legal: '460000, Оренбургская область, г.Оренбург, ул.Советская, д.60',
@@ -66,6 +67,7 @@ const ModulesContainer = ( { modules, setValue } ) => {
 
 const SkDictionaryAdd = () => {
   const [loading, setLoading] = useState(false)
+  const [apiLoading, setApiLoading] = useState(false)
   const history = useHistory()
   const location = useLocation()
   const initValues = location.state ? location.state : initialValues
@@ -79,15 +81,41 @@ const SkDictionaryAdd = () => {
   }
 
   const handleCancel = () => history.push('/dictionaries/sk');
+  const fillElementsByInn = async (inn, setFieldValue) => {
+    setApiLoading(true);
+    const dadataUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party";
+    const data = await axios.post(dadataUrl,
+      { query: inn, count: 10 },
+      {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": "Token " + process.env.REACT_APP_DADATA_API_KEY
+      },
+    });
+    if (data.data.suggestions.length) {
+      setFieldValue('kpp', data.data.suggestions[0].data.kpp)
+      setFieldValue('addr_fact', data.data.suggestions[0].data.address.value)
+      setFieldValue('title', data.data.suggestions[0].data.name.short_with_opf)
+    }
+    setApiLoading(false)
+    console.log('DADATA: ', data.data.suggestions[0].data)
+  }
 
   return (
     <div style={{position: 'relative'}}>
       <Formik initialValues={initValues} onSubmit={handleSubmit}>
-        { ({ setFieldValue } ) => (
+        { ({ values, setFieldValue } ) => (
           <Form>
             <InputField name="title" title="Наименование сетевой организации" />
             <div className="d-flex-group">
-              <InputField name="inn" title="ИНН" />
+              <InputField 
+                name="inn" 
+                title="ИНН" icon={
+                  apiLoading ? <Loading /> : <ManageSearch />
+                } 
+                onButtonClick={() => fillElementsByInn(values.inn, setFieldValue) }
+              />
               <InputField name="kpp" title="КПП" />
               <InputField name="bik" title="БИК" />
             </div>

@@ -29,12 +29,12 @@ export default function Notifications() {
       },
     ])
     setSmtpService({
-      subject: 'Личный кабинет "ООО" сетевая компания',
-      host: 'smtp.yandex.ru',
-      port: 465,
-      login: 'a1237687634',
-      password: '555',
-      encryption: 'SSL'
+      // subject: 'Личный кабинет "ООО" сетевая компания',
+      // host: 'smtp.yandex.ru',
+      // port: 465,
+      // login: 'a1237687634',
+      // password: '555',
+      // encryption: 'SSL'
     });
     setSmsService({
       id: 1,

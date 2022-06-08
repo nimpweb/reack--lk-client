@@ -16,7 +16,7 @@ import Confirm from './Confirm'
 import Layout from './Layout'
 import AccordeonBlock from './AccordeonBlock'
 import Toast from './Toast';
-import Loading from './Loading';
+import PageLoading from './PageLoading';
 
 export {
   Card,
@@ -37,5 +37,5 @@ export {
   Layout,
   AccordeonBlock,
   Toast,
-  Loading,
+  PageLoading,
 };

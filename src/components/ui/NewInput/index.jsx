@@ -1,10 +1,15 @@
+import { ManageSearch } from '@mui/icons-material';
 import React, { useState, useEffect } from 'react'
+import { Button } from '../../../components/ui'
 import styles from './newinput.module.css';
 
-export default function NewInput({title, type, onChange, value = '', ...props}) {
+export default function NewInput({title, type, onChange, icon = null, value = '', ...props}) {
   // const [text, setText] = useState(value === '' ? (props.value) ? props.value : '' : '');
   const [text, setText] = useState(value ? value : '')
   const [inputClassName, setInputClassName] = useState(null);
+
+  const ButtonIcon = icon
+  const ButtonClick = props.onButtonClick || (() => {})
 
   useEffect( () => {
     if (text.length) { setInputClassName(styles.fill) }
@@ -36,6 +41,9 @@ export default function NewInput({title, type, onChange, value = '', ...props}) 
             value={text}
           />
        }
+       { ButtonIcon !== null &&  <Button type="button" className={styles.inputButton}  onClick={ButtonClick}>
+         { () => <ButtonIcon /> }
+       </Button> }
       <label>{title}</label>
     </div>
   )
