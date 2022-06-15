@@ -5,8 +5,8 @@ import {  Checkbox, Layout } from '../../../../components/ui'
 import { Field } from 'formik'
 import styles from '../create.module.css'
 import NewSelect from './../../../../components/ui/NewSelect/index';
-import InputField from '../../../../components/InputField'
 import LabelField from './../../../../components/LabelField';
+import UserAddModal from './../../../UserList/components/UserAddModal';
 
 const profile = {
   firstName: 'Нестеров',
@@ -78,10 +78,15 @@ const userList = [
 
 export default function Step1({ values }) {
   const [selectedProfile, setSelectedProfile] = useState(profile)
+  const [agree, setAgree] = useState(false);
+  const [showUserAddModal, setShowUserAddModal] = useState(false);
+
+  const handleChangeAgreeCheckbox = useCallback(() => setAgree(prev => !prev), [])
+  const handleAddUserClick = useCallback(() => setShowUserAddModal(prev => !prev), [])
 
   const userProfile = useCallback(() => {
     return [
-      { id: 0, value: 'Добавить нового пользователя', onSelect: item => alert('select to create a new user: ' + JSON.stringify(item)) },
+      { id: 0, value: 'Добавить нового пользователя и выбрать его', onSelect: handleAddUserClick },
       ...userList.map( u => ({ id: u.id, value: `${u.firstName} ${u.middleName} ${u.lastName} | ${u.email}`}))
     ]
   }, []);
@@ -89,11 +94,11 @@ export default function Step1({ values }) {
   const handleChangeAdminUserList = item => {
     const filtered = userList.filter(f => f.id === parseInt(item.id))[0] || null
     setSelectedProfile(filtered)
-
   }
 
   return (
     <>
+      { showUserAddModal && <UserAddModal onClose={() => setShowUserAddModal(false)} onSuccess={(item) => console.log('NEW_USER', item)} /> }
       <Layout margin='20px 0' padding="20px" content="flex-start" border={`solid 1px rgba(100, 100, 100, .2)`} borderRounded="10px" gap="3px">
         <div className={styles.adminBox}> 
           <NewSelect 
@@ -163,6 +168,13 @@ export default function Step1({ values }) {
             </div>
             </>
           ) } */}
+      <Layout noBoxShadow margin='20px 0' padding="20px">
+        <Checkbox 
+          title='Я даю согласие на обработку предоставленных мною персональных данных в соответствии с Федеральным законом РФ №152-ФЗ от 27.07.2006 "О персональных данны"' 
+          name="personal_checkbox"
+          onChange={handleChangeAgreeCheckbox}
+        />
+      </Layout>
     </>
   )
 }

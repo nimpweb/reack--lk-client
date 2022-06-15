@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Confirm } from '../../../components/ui';
+import { Modal, Confirm, Button } from '../../../components/ui';
 import { PlusOne, AttachFile, Info, Download, Delete, HistoryEdu } from '@mui/icons-material';
 import styles from './detail.module.css';
 
@@ -65,21 +65,22 @@ function RowDocument({ item, onRemove, onSign }) {
       await onRemove(item.id)
       setRemoveModal(false)
     }
-    return (
-      <>
-        {removeModal && <Confirm content="Действительно удалить документ?" onOk={handleDeleteFile} onCancel={() => setRemoveModal(false)} />}
-        <div className={styles.documentRow}>
-          <div className={styles.documentIcon}>{item.fileExt}</div>
-          <div className={styles.documentText}>{item.title}</div>
-          <div className={styles.documentButtons}>
-            {item.user.canDownload && <a href={item.downloadLink} download={`${item.title}.${item.fileExt}`} ><Download /></a> }
-            {item.user.canSign && <a href="/" className={styles.teal} onClick={handleSignFile}><HistoryEdu /></a>}
-            {item.user.canRemove && <a href="/" className={styles.danger} onClick={handleRemoveClick}><Delete /></a>}
-          </div>
-        </div>
-      </>
-    )
   }
+
+  return (
+    <>
+      {removeModal && <Confirm content="Действительно удалить документ?" onOk={handleDeleteFile} onCancel={() => setRemoveModal(false)} />}
+      <div className={styles.documentRow}>
+        <div className={styles.documentIcon}>{item.fileExt}</div>
+        <div className={styles.documentText}>{item.title}</div>
+        <div className={styles.documentButtons}>
+          {item.user.canDownload && <Button variant="icon" href={item.downloadLink} download={`${item.title}.${item.fileExt}`} ><Download /></Button> }
+          {item.user.canSign && <Button variant="icon" href="/" color="green" onClick={handleSignFile}><HistoryEdu /></Button>}
+          {item.user.canRemove && <Button variant="icon" color="red" onClick={handleRemoveClick}><Delete /></Button>}
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default DocumentComponent;

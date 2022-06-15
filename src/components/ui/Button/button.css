@@ -169,3 +169,13 @@
   -o-border-radius: 50%;
 }
 
+.btn.icon.green {
+  background-color: transparent;
+  border-radius: 50%;
+  color: green;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+

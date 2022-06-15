@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Add, Email, Phone, Search } from '@mui/icons-material';
-import { Loading, Toast } from '../../components';
+import { Loading } from '../../components';
 import $api from '../../http';
-import { Card, FloatButton } from '../../components/ui';
+import { Card, FloatButton, Toast } from '../../components/ui';
 import UserAddModal from './components/UserAddModal';
 
 import styles from './userlist.module.css';

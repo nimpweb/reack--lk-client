@@ -82,7 +82,7 @@ const SkDictionaryAdd = () => {
 
   const handleCancel = () => history.push('/dictionaries/sk');
   const fillElementsByInn = async (inn, setFieldValue) => {
-    setApiLoading(true);
+    setApiLoading(true);  
     const dadataUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party";
     const data = await axios.post(dadataUrl,
       { query: inn, count: 10 },
