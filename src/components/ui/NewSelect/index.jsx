@@ -3,7 +3,7 @@ import { ArrowDropDown, ArrowDropUp, Delete } from '@mui/icons-material'
 import cn from 'classnames';
 import styles from './newselect.module.css';
 
-export default function NewSelect({items, title, onChange}) {
+export default function NewSelect({items, title, underText = '', onChange}) {
   const [isActive, setIsActive] = useState(false);
   const [text, setText] = useState('');
   const [data, setData] = useState(items);
@@ -67,6 +67,7 @@ export default function NewSelect({items, title, onChange}) {
           >{item.value ? item.value : item.title}</li>
         ))}
       </ul>
+      {underText.length > 0 && <div className={styles.underText}>{underText}</div> }
     </div>
     <div className={styles.overlay}>
       

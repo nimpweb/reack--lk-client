@@ -1,3 +1,16 @@
+.InputGroupWithButton {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+}
+
+.roundedBorderContainer {
+  border: solid 1px rgba(200, 200, 200, .4);;
+  border-radius: 15px;
+  width: 100%;
+  padding: 20px;
+}
+
 .showCorrectInfoBlock {
   font-weight: 300;
   padding: 20px;

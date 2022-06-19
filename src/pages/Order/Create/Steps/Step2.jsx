@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from '../create.module.css';
-import { NavigateNext, NavigateBefore } from '@mui/icons-material';
+import { NavigateNext, NavigateBefore, PlusOne, Remove } from '@mui/icons-material';
 import AccordeonBlock from '../../../../components/ui/AccordeonBlock';
 import { NewInput, RadioList, NewSelect, Button, Layout} from '../../../../components/ui';
 import ProjectPeriodList from './components/ProjectPeriodList';
@@ -40,6 +40,7 @@ const Step2 = () => {
   });
 
   const [completed, setCompleted] = useState(false);
+  const [powerDevices, setPowerDevices] = useState(['']);
 
   const changeStep = (name, value) => {
     setCurrentStep(prev => {
@@ -53,15 +54,39 @@ const Step2 = () => {
     window.scrollTo(0, 0)
   }, [])
 
+  const GroupInputButton = ( {id, title, power } ) => {
+    const ref = useRef(null);
+    const handleRemove = () => {
+      ref.current.remove();
+    }
+    return (
+      <div ref={ref} class={styles.InputGroupWithButton}>
+        <InputField 
+          name={`devicesNames_${id}`}
+          title="Наименование присоединяемого энергопринимающего устройства" 
+          value={title}
+        />
+        <InputField 
+          name={`devicesPower_${id}`}
+          title="Мощность"
+          value={power}
+        />
+        <Button type="button" variant="icon" color="red" onClick={handleRemove}><Remove /></Button>
+      </div>
+    )
+  }
+
+  const handleInsertNewInput = () => {
+    setPowerDevices(prev => {
+      const nextId = prev.max
+      // [...prev, {  }]
+    })
+  }
 
   return (
     <>
-      {/* <AccordeonBlock 
-        title="Тип присоединения" 
-        subtitle="Можно подключиться не только постоянно, но и временно, пока проводятся основные работы по подключению или объект передвижной"
-        open={true}
-        initial={initialValues.connectingType}
-      >
+
+      <Layout padding={20} noBoxShadow>
         <RadioList 
           title="" 
           name="toa"
@@ -74,15 +99,15 @@ const Step2 = () => {
           onChage={value => changeStep('toa', value)}
           value={currentStep.toa}
         />
-      </AccordeonBlock>
-     */}
+      </Layout>
+
       <AccordeonBlock
         title="Объект подключения"
         subtitle="Что присоединяем, где и по какой причине"
         open={true}
         disabled={false}
         >
-          <InputField name="devicesNames" title="Наименование присоединяемых энергопринимающий устройств" />
+          <InputField name="devicesNames" title="Наименование присоединяемых энергопринимающих устройств" />
           <InputField name="kadastNumber" title="Кадастровый номер земельного участка, на котором расположено энергопринимающее устройство" />
           <InputField name="devicesPlace" title="Местоположение энергопринимающий устройств" />
           <SelectField 
@@ -99,7 +124,15 @@ const Step2 = () => {
               {id: 8, title: 'Генерация'},
             ]}
           />
-
+        {/* <div className={styles.roundedBorderContainer}>
+          { powerDevices.length > 0 && powerDevices.map((p, index) => {
+            if (index > 0) {
+              return <GroupInputButton text={p} />
+            }
+          }) }
+          <Button type="button" onClick={handleInsertNewInput}><PlusOne /> Добавить еще...</Button>
+        </div> */}
+        
           {/* <Field
             name=""
             title="Причина подачи заявки"
@@ -118,12 +151,12 @@ const Step2 = () => {
             value={values.orderReason}
           /> */}
       </AccordeonBlock>
-{/* 
+
       <AccordeonBlock
         title="Параметры подключения"
         subtitle="Требуемая мощность, категория надежности, напряжение и сроки"
         open={false}
-        disabled={true}
+        disabled={false}
       >
           <NewInput 
             title="Количество точек присоединения" 
@@ -155,6 +188,7 @@ const Step2 = () => {
               {id: 3, title: '(III): Третья категория'}, 
             ]}
             name="category_of_proof"
+            underText="Первая категория, если перерыв в электроснабжении может повлечь опасность для жизни людей, угрозу безопасности государства, расстройство сложного технологического присоединения. Вторая категория, если перерыв в электроснабжении может привести к массовому недотпуску продукции, простоям рабочих и механизмов, нарушению деятельности значительного количества жителей. Третья категория – все остальные объекты, не подпадающие под определение первой и второй категории надежности."
             onChange={value => changeStep('category_of_proof', value)}
             value={currentStep.category_of_proof}
           />
@@ -191,7 +225,8 @@ const Step2 = () => {
             items={currentStep.project_period}
             setItems={(items) => setCurrentStep(prev => ({...prev, project_period: [...items]}))}
           />
-      </AccordeonBlock> */}
+          <br />
+      </AccordeonBlock> 
 
     </>
   );

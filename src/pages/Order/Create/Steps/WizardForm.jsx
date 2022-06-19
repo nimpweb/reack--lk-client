@@ -55,6 +55,7 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
               nextStepTitle={ currentStep.props.nextButtonTitle } 
               onPrev={ () => prevStep(values)} 
             />
+            <p className="text-center muted-text">Lorem, ipsum dolor.</p>
           </Form>
         )}
       }
