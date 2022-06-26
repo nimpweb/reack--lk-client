@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Formik, Form } from 'formik'
 import WizardNavigationForm from './WizardNavigationForm'
 import PageTitle from '../../../../components/PageTitle'
+import { useDispatch } from 'react-redux';
 
 const WizardForm = ({ children, initialValues, onSubmit }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
@@ -10,6 +11,8 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
   const currentStep = formSteps[currentStepIndex]
   const totalSteps = formSteps.length
   const isLastStep = (totalSteps - 1 === currentStepIndex)
+
+  const dispatch = useDispatch()
 
   useEffect(( ) => {
     window.scrollTo(0, 0)
@@ -27,7 +30,7 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
   }
 
   const handleSubmit = async (values, actions) => {
-    console.log('123123123123')
+
     if (currentStep.props.onSubmit) {
       await currentStep.props.onSubmit(values)
     }

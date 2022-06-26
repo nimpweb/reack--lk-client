@@ -1,5 +1,5 @@
 import React, { useCallback,  useState } from 'react'
-import { Report } from '@mui/icons-material';
+import { Report, Done, DoNotDisturb } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import {  Checkbox, Layout } from '../../../../components/ui'
 import { Field } from 'formik'
@@ -80,6 +80,7 @@ export default function Step1({ values }) {
   const [selectedProfile, setSelectedProfile] = useState(profile)
   const [agree, setAgree] = useState(false);
   const [showUserAddModal, setShowUserAddModal] = useState(false);
+  const [modalCancelOrder, setModalCancelOrder] = useState(true);
 
   const handleChangeAgreeCheckbox = useCallback(() => setAgree(prev => !prev), [])
   const handleAddUserClick = useCallback(() => setShowUserAddModal(prev => !prev), [])
@@ -96,8 +97,12 @@ export default function Step1({ values }) {
     setSelectedProfile(filtered)
   }
 
+ 
+
   return (
     <>
+      
+
       { showUserAddModal && <UserAddModal onClose={() => setShowUserAddModal(false)} onSuccess={(item) => console.log('NEW_USER', item)} /> }
       <Layout margin='20px 0' padding="20px" content="flex-start" border={`solid 1px rgba(100, 100, 100, .2)`} borderRounded="10px" gap="3px">
         <div className={styles.adminBox}> 

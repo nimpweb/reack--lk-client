@@ -1,8 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import $api from '../../http'
 
 export const totalSteps = 3;
 export const ORDER_DRAFT = { id: 1, title: 'Черновик' }
 export const ORDER_ACTIVE = { id: 2, title: 'В работе'}
+
+const fetchOrder = createAsyncThunk('order/fetch', async ( orderId ) => {
+  const { data } = await $api.get(`/order/${orderId}`);
+  return data;
+})
 
 const initialState =  {
   state: ORDER_DRAFT,
@@ -24,7 +30,7 @@ const initialState =  {
   representativeDocument: '',
 }
 
-const orderCreateSlice = createSlice({
+const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
@@ -49,8 +55,25 @@ const orderCreateSlice = createSlice({
     clearNewOrder: (state) => {
       state = initialState
     },
+    push: (state, action) => {
+      state = { ...state, ...action.payload }
+    }
+  },
+  extraReducers: {
+    [fetchOrder.pending] : (state) => {
+      state.order = initialState
+      state.status = 'loading'
+    },
+    [fetchOrder.fulfilled] : (state, action) => {
+      state.order = action.payload
+      state.status = 'loaded'
+    },
+    [fetchOrder.rejected] : (state) => {
+      state.order = initialState
+      state.status = 'error'
+    },
   }
 })
 
-export const { nextStep, prevStep, pushStep } = orderCreateSlice.actions;
-export default orderCreateSlice.reducer;
+export const { nextStep, prevStep, pushStep, push } = orderSlice.actions;
+export default orderSlice.reducer;

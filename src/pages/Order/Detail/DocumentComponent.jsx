@@ -3,7 +3,7 @@ import { Modal, Confirm, Button } from '../../../components/ui';
 import { PlusOne, AttachFile, Info, Download, Delete, HistoryEdu } from '@mui/icons-material';
 import styles from './detail.module.css';
 
-function DocumentComponent(documentList) {
+function DocumentComponent({documentList}) {
   const [modal, setModal] = useState(false)
   const removeDocument = (documentId) => {
     console.log('REMOVE DOCUMENT WITH ID: ', documentId);
