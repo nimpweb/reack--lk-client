@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Button } from '../../../components/ui'
 import styles from './newinput.module.css';
 
-export default function NewInput({title, type, onChange, icon = null, value = '', ...props}) {
+export default function NewInput({title, type, onChange, icon = null, value = '', error=false, helperText = '', ...props}) {
   // const [text, setText] = useState(value === '' ? (props.value) ? props.value : '' : '');
   const [text, setText] = useState(value ? value : '')
   const [inputClassName, setInputClassName] = useState(null);
@@ -22,29 +22,33 @@ export default function NewInput({title, type, onChange, icon = null, value = ''
     onChange(e);
   }
   return (
-    <div className={styles.input}>
-      { 
-        type === 'textarea'
-        ? <textarea 
-            name={props.name} 
-            rows={props?.rows || 3} 
-            className={inputClassName} 
-            onChange={onChange}
-          >
-            {text}
-          </textarea> 
-        : <input 
-            {...props} 
-            type={type} 
-            className={inputClassName} 
-            onChange={handleChange} 
-            value={text}
-          />
-       }
-       { ButtonIcon !== null &&  <Button type="button" className={styles.inputButton}  onClick={ButtonClick}>
-         { () => <ButtonIcon /> }
-       </Button> }
-      <label>{title}</label>
-    </div>
+    <>
+      <div className={`${styles.input} ${error && styles.errorInput}`}>
+        { 
+          type === 'textarea'
+          ? <textarea 
+              name={props.name} 
+              rows={props?.rows || 3} 
+              className={inputClassName} 
+              onChange={onChange}
+            >
+              {text}
+            </textarea> 
+          : <input 
+              {...props} 
+              type={type} 
+              className={inputClassName} 
+              onChange={handleChange} 
+              value={text}
+            />
+        }
+        { ButtonIcon !== null &&  <Button type="button" className={styles.inputButton}  onClick={ButtonClick}>
+          { () => <ButtonIcon /> }
+        </Button> }
+        <label>{title}</label>
+      </div>
+      { helperText.length > 0 && <div className={`${error ? styles.errorText : styles.helperText}`}>{helperText}</div> }
+    </>
   )
 }
+

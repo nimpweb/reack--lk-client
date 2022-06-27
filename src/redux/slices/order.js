@@ -10,13 +10,13 @@ const fetchOrder = createAsyncThunk('order/fetch', async ( orderId ) => {
   return data;
 })
 
-const initialState =  {
+const initialState = {
   state: ORDER_DRAFT,
   currentStep: 1,
   loading: false,
   error: '',
 
-  sid: 1, /* 1 - физическое лицо, 2 - юридическое лицо, 3 - ИП */
+  sid: 1 /* 1 - физическое лицо, 2 - юридическое лицо, 3 - ИП */,
   toa: 1,
 
   applicantFio: '',
@@ -28,7 +28,25 @@ const initialState =  {
   representativeFio: '',
   representativePhone: '',
   representativeDocument: '',
-}
+
+  devicesName: '',
+  kadNum: '',
+  devicesPlace: '',
+  reason: '',
+
+  pointsCount: 1,
+  requestedMaxPower: '',
+  oldMaxPower: '',
+  reliabilityCategory: '',
+  unn: '',
+  CharacterOfLoad: '',
+  degignDeadlines: [],
+
+  guaranteeSupplier: '',
+  comment: '',
+
+  documents: [],
+};
 
 const orderSlice = createSlice({
   name: 'order',

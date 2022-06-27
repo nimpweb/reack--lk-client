@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import { Modal, Button } from '../../../components/ui'
-import { PlusOne, Redo } from '@mui/icons-material'
 import WizardForm from './Steps/WizardForm'
+import {useDispatch} from 'react-redux'
 import { Step1, Step2, Step3, Step4 } from './Steps';
+import { push } from '../../../redux/slices/order';
 
 export const CreateOrderContext =  React.createContext(null);
 
 const initStateValues = {
   sid: 0,
   toa: 0,
+  stepIndex: 0,
   applicantFio: '',
   applicantPhone: '',
   applicantEmail: '',
@@ -36,55 +37,27 @@ const initStateValues = {
   documents: []
 }
 
-const orderSubmit = (values) => {
-  alert('ORDER_SUBMIT', JSON.stringify(values, null, 2))
-}
+
 
 const OrderCreatePage = () => {
   const [initialOrderValues, setInitialOrderValues] = useState(initStateValues)
-  const [modalCancelOrder, setModalCancelOrder] = useState(true);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const currentOrder = localStorage.getItem('new-order') ?? null;
-    if (currentOrder) {
-      setModalCancelOrder(true)
-    }
-  }, [])
+
+  const orderSubmit = (values) => {
+    dispatch(push(values));
+    alert('ORDER_SUBMIT', JSON.stringify(values, null, 2))
+  }
+  
 
   return (
     <>
-      {
-        modalCancelOrder && (
-          <Modal onClose={() => setModalCancelOrder(false)} width={500}>
-            Заявка на технологическое присоединение уже создавалась Вами и не была завершена. 
-            <ul style={{padding: '10px 20px'}}>
-              <li>Вы сможете начать оформление новой заявки</li>
-              <li>Или продолжите оформление старой заявки</li>
-            </ul>
-            <hr />
-            <div class="d-flex-15 d-flex-cc w-100">
-              <Button 
-                color="red" 
-                onClick={() => {
-                  setInitialOrderValues(initStateValues);
-                  setModalCancelOrder(false)
-                }}
-              >
-                <PlusOne />Новая заяка
-              </Button>
-              <Button 
-                onClick={() => setModalCancelOrder(false)}
-              >
-                <Redo />Продолжить
-              </Button>
-            </div>
-          </Modal>
-        )
-      }
+
       <WizardForm initialValues={initialOrderValues} onSubmit={orderSubmit} >
         <Step1 
           title="Выбор заявителя"
           nextButtonTitle="Далее к заполнению цели заявки" 
+          onSubmit={(values) => console.log('STEP1 - values: ', values)}
         />
         <Step2
           title="Заполнение заявки"
@@ -101,8 +74,8 @@ const OrderCreatePage = () => {
       </WizardForm>
     </>
   )
-  
 
 }
 
 export default OrderCreatePage
+

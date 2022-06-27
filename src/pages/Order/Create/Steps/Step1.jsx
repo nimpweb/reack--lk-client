@@ -6,6 +6,7 @@ import { Field } from 'formik'
 import styles from '../create.module.css'
 import NewSelect from './../../../../components/ui/NewSelect/index';
 import LabelField from './../../../../components/LabelField';
+import InputField from './../../../../components/InputField';
 import UserAddModal from './../../../UserList/components/UserAddModal';
 
 const profile = {
@@ -82,6 +83,8 @@ export default function Step1({ values }) {
   const [showUserAddModal, setShowUserAddModal] = useState(false);
   const [modalCancelOrder, setModalCancelOrder] = useState(true);
 
+  const isAdmin = false
+
   const handleChangeAgreeCheckbox = useCallback(() => setAgree(prev => !prev), [])
   const handleAddUserClick = useCallback(() => setShowUserAddModal(prev => !prev), [])
 
@@ -101,20 +104,19 @@ export default function Step1({ values }) {
 
   return (
     <>
-      
-
       { showUserAddModal && <UserAddModal onClose={() => setShowUserAddModal(false)} onSuccess={(item) => console.log('NEW_USER', item)} /> }
-      <Layout margin='20px 0' padding="20px" content="flex-start" border={`solid 1px rgba(100, 100, 100, .2)`} borderRounded="10px" gap="3px">
-        <div className={styles.adminBox}> 
-          <NewSelect 
-            title="Выберите пользователя, на которого будет оформляться заявка"
-            items={ userProfile } 
-            onChange={ item => handleChangeAdminUserList(item)}
-          />
-          <p style={{fontSize: 12, fontWeight: '300', color: 'silver'}}> I. Администратор сетевой компании имеете возможность создаввать нового пользователя, а также выбирать пользователя, на чье имя будет оформляться заявка Вами</p>
-          <p style={{fontSize: 12, fontWeight: '300', color: 'silver'}}>II.Подача заявки администратором может осуществляться только для физического лица мощностью до 15Квт</p>
-        </div>
-      </Layout>
+      { isAdmin  && <Layout margin='20px 0' padding="20px" content="flex-start" border={`solid 1px rgba(100, 100, 100, .2)`} borderRounded="10px" gap="3px">
+          <div className={styles.adminBox}> 
+            <NewSelect 
+              title="Выберите пользователя, на которого будет оформляться заявка"
+              items={ userProfile } 
+              onChange={ item => handleChangeAdminUserList(item)}
+            />
+            <p style={{fontSize: 12, fontWeight: '300', color: 'silver'}}> I. Администратор сетевой компании имеете возможность создаввать нового пользователя, а также выбирать пользователя, на чье имя будет оформляться заявка Вами</p>
+            <p style={{fontSize: 12, fontWeight: '300', color: 'silver'}}>II.Подача заявки администратором может осуществляться только для физического лица мощностью до 15Квт</p>
+          </div>
+        </Layout>
+       }
       { profile.companies.length > 0 && (
         <Layout margin="10px" padding="20px" direction="column" align="flex-start">
             <h3 className="w-100">Заявка будет оформляться на: </h3>
@@ -134,6 +136,8 @@ export default function Step1({ values }) {
                 <LabelField title="Адрес электронной почты" subTitle="Основная авторизация осуществляется по Email, все уведомления будут приходить на этот адрес" name="applicantEmail" value={selectedProfile.email} />
                 <LabelField title="Мобильный телефон" subTitle="необходим в случае авторизации или получения SMS-оповещений" name="applicantEmail" value={selectedProfile.email} />
                 <LabelField title="ИНН" name="applicantInn" value={selectedProfile.inn} />
+
+                <InputField error={true} title="Текстовое поле" helperText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim quas similique recusandae necessitatibus officiis nostrum eum repellendus veniam, tempore vitae incidunt consequatur cum quisquam maxime voluptatibus ratione. Quidem, quibusdam aut." name="someField" />
 
                 <div className={styles.showCorrectInfoBlock}>
                   <Report />
