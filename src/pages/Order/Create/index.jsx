@@ -10,7 +10,7 @@ const initStateValues = {
   sid: 0,
   toa: 0,
   stepIndex: 0,
-  applicantFio: '',
+  applicantFio: 'Петров Сергей Викторович',
   applicantPhone: '',
   applicantEmail: '',
   isRepresentative : false,
@@ -37,8 +37,6 @@ const initStateValues = {
   documents: []
 }
 
-
-
 const OrderCreatePage = () => {
   const [initialOrderValues, setInitialOrderValues] = useState(initStateValues)
   const dispatch = useDispatch();
@@ -52,7 +50,6 @@ const OrderCreatePage = () => {
 
   return (
     <>
-
       <WizardForm initialValues={initialOrderValues} onSubmit={orderSubmit} >
         <Step1 
           title="Выбор заявителя"

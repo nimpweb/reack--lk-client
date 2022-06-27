@@ -10,25 +10,15 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
   const [modalCancelOrder, setModalCancelOrder] = useState(false)
   const [snapshot, setSnapshot] = useState(initialValues)
   const formSteps = React.Children.toArray(children)
-  console.log(formSteps);
   const currentStep = formSteps[currentStepIndex]
   const totalSteps = formSteps.length
   const isLastStep = (totalSteps - 1 === currentStepIndex)
 
-  const setOrderStateData = useCallback((state, modal) => {
-    setModalCancelOrder(modal)
-  });
-
   useEffect(( ) => {
     window.scrollTo(0, 0)
-    const currentOrder = localStorage.getItem('new-order') ?? null;
-    if (currentOrder) {
-      setOrderStateData(JSON.parse(currentOrder), true)
-    }
   }, [])
   
   const nextStep = (values) => {
-    console.log('values <fr></fr>om snapshot', values);
     setSnapshot(values);
     setCurrentStepIndex(currentStepIndex + 1)
   }
@@ -69,7 +59,7 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
             <div class="d-flex-15 d-flex-cc w-100">
               <Button 
                 color="red" 
-                onClick={() => setOrderStateData({}, false)}
+                onClick={() => {}}
               >
                 <PlusOne />Новая заяка
               </Button>
@@ -83,7 +73,7 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
         )
       }    
       <Formik initialValues={snapshot} onSubmit={handleSubmit}>
-        { ({values}) => {
+        { ({values, setValues}) => {
           return (
             <Form>
               <PageTitle title={`Шаг ${currentStepIndex+1} из ${totalSteps}: ${currentStep.props.title}`} />
@@ -105,6 +95,6 @@ const WizardForm = ({ children, initialValues, onSubmit }) => {
   )
 }
 
-export const FormField = ({ children }) => children
+export const FormField = ({ children, setFieldValue }) => children
 
 export default WizardForm

@@ -101,7 +101,6 @@ export default function Step1({ values }) {
   }
 
  
-
   return (
     <>
       { showUserAddModal && <UserAddModal onClose={() => setShowUserAddModal(false)} onSuccess={(item) => console.log('NEW_USER', item)} /> }
@@ -131,7 +130,7 @@ export default function Step1({ values }) {
             <>
               <Layout margin="10px" padding="20px" direction="column" align="flex-start">
                 <h3 className="w-100">Данные заявителя</h3>
-                <LabelField title="ФИО" name="applicantFio" value={`${selectedProfile.firstName} ${selectedProfile.middleName} ${selectedProfile.lastName}`} />
+                <LabelField title="ФИО" name="applicantFio" putValue={() => {} } />
                 <LabelField title="Фактический адрес" name="applicantFactAddress" value={selectedProfile.address} />
                 <LabelField title="Адрес электронной почты" subTitle="Основная авторизация осуществляется по Email, все уведомления будут приходить на этот адрес" name="applicantEmail" value={selectedProfile.email} />
                 <LabelField title="Мобильный телефон" subTitle="необходим в случае авторизации или получения SMS-оповещений" name="applicantEmail" value={selectedProfile.email} />
