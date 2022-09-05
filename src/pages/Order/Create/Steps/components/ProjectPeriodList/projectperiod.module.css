@@ -1,0 +1,20 @@
+.containerList {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.containerList h4 {
+  width: 100%;
+  margin-top: 10px;
+
+}
+
+.containerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}

@@ -1,0 +1,100 @@
+.ViewTable {
+  box-shadow: 0 1px 5px rgba(200, 200, 200, .7);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.ViewTable .ViewTableRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  transition: .4s ease;
+    background-color: transparent;
+    -webkit-transition: .4s ease;
+    -moz-transition: .4s ease;
+    -ms-transition: .4s ease;
+    -o-transition: .4s ease;
+  }
+  
+  .ViewTable .ViewTableRow:hover {
+    background-color: rgba(200, 200, 200, .2);
+    cursor: pointer;
+}
+
+.ViewTable .ViewTableCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px;
+}
+
+.ViewTable .ViewTableCol.header {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.FilterInputBlock {
+  background-color: rgba(200, 200, 200, .2);
+  padding: 5px;
+  width: 100%;
+}
+
+.FilterInputBlock input {
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 300;
+  border: solid 1px transparent;
+  background-color: transparent;
+  transition: .4s ease;
+  -webkit-transition: .4s ease;
+  -moz-transition: .4s ease;
+  -ms-transition: .4s ease;
+  -o-transition: .4s ease;
+  border-radius: 5px;
+  color: var(--default-color);
+  -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: rgba(200, 200, 200, .5);
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: rgba(200, 200, 200, .5);
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: rgba(200, 200, 200, .5);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(200, 200, 200, .5);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgba(200, 200, 200, .5);
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: rgba(200, 200, 200, .5);
+}
+
+.FilterInputBlock input:focus {
+  background: white;
+  border-color: rgba(200, 200, 200, .5)
+}

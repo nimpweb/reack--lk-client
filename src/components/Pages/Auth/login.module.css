@@ -1,0 +1,52 @@
+.loadingOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, .7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all .5s ease;
+}
+
+.loginErrorMessage {
+  box-shadow: 0px 0px 1px rgb(0 0 0 / 15%);
+  width: 100%;
+  padding: 10px;
+  color: coral;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginErrorMessageIcon {
+  margin-right: 10px;
+}
+
+.restorePasswordLink  {
+  color: #6a59d1;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transition: .5s ease;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  -moz-transition: .5s ease;
+  -ms-transition: .5s ease;
+  -o-transition: .5s ease;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.restorePasswordLink:hover {
+  color: #614fd0;
+  text-decoration: none;
+}
+
+.loginWrapper {
+  display: flex;
+  flex-direction: column;
+}

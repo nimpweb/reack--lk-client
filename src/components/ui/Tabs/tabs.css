@@ -1,0 +1,35 @@
+.tabs {
+  width: 100%;
+}
+
+.tabLinks {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #555;
+}
+
+.tabLink {
+  font-size: 18px;
+  padding: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all .33s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.tabLink:hover, 
+.tabLink.active {
+  background-color: rgb(240, 240, 250);
+  color: inherit;
+}
+
+.tabContent {
+  border: solid 1px rgb(240, 240, 250);
+  padding: 20px;
+
+}

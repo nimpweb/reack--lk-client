@@ -1,0 +1,156 @@
+.InputGroupWithButton {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+}
+
+.roundedBorderContainer {
+  border: solid 1px rgba(200, 200, 200, .4);;
+  border-radius: 15px;
+  width: 100%;
+  padding: 20px;
+}
+
+.showCorrectInfoBlock {
+  font-weight: 300;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(53, 74, 161, 0.05)
+}
+
+.showCorrectInfoBlock h5 {
+  line-height: 25px;
+}
+
+.showCorrectInfoBlock svg {
+  color: orangered;
+  font-size: 32px;
+}
+
+
+/* steps detail */
+
+.adminBox {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.adminBox > * {
+  width: 100%;
+  margin: 0;
+}
+
+.dataContainer {
+  margin: 20px 0;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(100, 100, 100, .1);
+  color: var(--default-color);
+}
+
+.dataText {
+  line-height: 25px;
+}
+
+.dataText span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.dataTextComment {
+  font-weight: 300 !important;
+  font-size: silver;
+  font-size: 12px;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.half {
+  width: 49%;
+}
+
+
+.orderCreate {
+  width: 100%;
+}
+
+.currentCompanyContainer {
+  display: flex;
+  align-items: center;
+}
+
+.currentCompanyContainer span {
+  font-weight: 600;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.currentCompanyContainer img {
+  height: 20px;
+}
+
+.personalBlock {
+  padding: 20px 0;
+}
+
+.accentText {
+  color: var(--second-color);
+  font-weight: bold;
+}
+
+/* Headers */
+
+.stepContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stepHeader {
+  display: flex;
+  padding: 20px;
+}
+
+.stepHeaderItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepHeaderCircle {
+  background: silver;
+  border-radius: 5px;
+}
+
+.stepHeaderText {
+  color: silver;
+}
+
+.formBlock {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.checkBoxLabel {
+  margin-right: 10px;
+}
+
+.submitButtonsContainer {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: solid 1px rgba(150, 150, 150, .2);
+}

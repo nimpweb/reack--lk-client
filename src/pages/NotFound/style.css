@@ -1,0 +1,16 @@
+.block-rounded.page-404 {
+  background-image: url('./404.png');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: contain;
+}
+
+
+.block-rounded > p {
+  margin-top: 20px;
+}
+
+.block-rounded > a {
+  display: block;
+  margin-top: 20px;
+}

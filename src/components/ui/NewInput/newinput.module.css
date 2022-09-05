@@ -1,0 +1,123 @@
+.input {
+  margin: 10px 0;
+  width: 100%;
+  position: relative;
+  background-color: #0000000d;
+  color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  display: flex;
+}
+
+.input input {
+  height: 50px;
+}
+
+.input input,
+.input textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 20px 10px 10px 10px;
+  border-radius: 5px;
+  border-bottom: solid 1px rgba(0, 0, 0, .2);
+  z-index: 1;
+  color: var(--first-color);
+}
+
+.input label {
+  z-index: 0;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  color: #444;
+  left: 10px;
+  top: 17px;
+  transition: .1s cubic-bezier(.25,.8,.5,1);
+  -webkit-transition: .1s cubic-bezier(.25,.8,.5,1);
+  -moz-transition: .1s cubic-bezier(.25,.8,.5,1);
+  -ms-transition: .1s cubic-bezier(.25,.8,.5,1);
+  -o-transition: .1s cubic-bezier(.25,.8,.5,1);
+  pointer-events: none;
+  transform-origin: top left;
+}
+
+.input input:focus,
+.input textarea:focus {
+  border-bottom: solid 1px #6a59d1;
+}
+
+.input input:focus ~ label,
+.input input.fill ~ label,
+.input textarea:focus ~ label,
+.input textarea.fill ~ label
+ {
+  color: #6a59d1;
+  transform: translateY(-15px) scale(.75);
+  -webkit-transform: translateY(-15px) scale(.75);
+  -moz-transform: translateY(-15px) scale(.75);
+  -ms-transform: translateY(-15px) scale(.75);
+  -o-transform: translateY(-15px) scale(.75);
+}
+.inputButton {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  padding: 2px 4px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  transition: .4s ease;
+  -webkit-transition: .4s ease;
+  -moz-transition: .4s ease;
+  -ms-transition: .4s ease;
+  -o-transition: .4s ease;
+  z-index: 10;
+}
+
+.inputButton:hover {
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+}
+
+
+.inputButton:focus {
+  transform: translateY(+2px);
+  -webkit-transform: translateY(+2px);
+  -moz-transform: translateY(+2px);
+  -ms-transform: translateY(+2px);
+  -o-transform: translateY(+2px);
+}
+.errorText {
+  color: orangered;
+  width: 100%;
+  font-size: 10px;
+  margin-top: -20px;
+}
+
+.helperText {
+  color: var(--first-color);
+  width: 100%;
+  font-size: 10px;
+  margin-top: -20px;
+}
+
+.errorInput {
+  background-color: #ff670036;
+  border-color: #ff670088;
+  color: white;
+}

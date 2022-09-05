@@ -1,0 +1,34 @@
+.modalContent {
+  position: relative;
+}
+
+.modalContent h3 {
+  text-align: center;
+}
+
+.modalContent h3 span {
+  color:var(--second-color);
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+
+.modalContent p {
+  color: #555;
+  font-size: 14px;
+}
+
+.modalList {
+  padding: 0;
+  margin: 10px 20px 0 10px;
+  color: #555;
+}
+
+.modalList li {
+  margin-left: 15px;
+  padding: 3px;
+}

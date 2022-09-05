@@ -1,0 +1,17 @@
+.info {
+  padding: 30px;
+  font-weight: 300;
+  background-color: rgba(53, 74, 161, 0.2);
+}
+.instructionBody {
+  line-height: 22px;
+}
+
+.instructionBody h5 {
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.instructionBody p {
+  margin-bottom: 5px;
+}

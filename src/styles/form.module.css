@@ -1,0 +1,14 @@
+.dataText {
+  /* line-height: 25px; */
+}
+
+.dataText span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.dataTextComment {
+  font-weight: 300 !important;
+  font-size: silver;
+  font-size: 12px;
+}

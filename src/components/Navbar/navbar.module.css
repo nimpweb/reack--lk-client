@@ -1,0 +1,39 @@
+.navbar {
+  z-index: 99;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: .6s ease;
+  -webkit-transition: .6s ease;
+  -moz-transition: .6s ease;
+  -ms-transition: .6s ease;
+  -o-transition: .6s ease;
+}
+
+.navbarContent {
+  position: relative;
+  height: calc(4rem + 1rem);
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  transition: .6s ease;
+  -webkit-transition: .6s ease;
+  -moz-transition: .6s ease;
+  -ms-transition: .6s ease;
+  -o-transition: .6s ease;
+}
+
+.navbar.moved {
+  backdrop-filter: blur(5px);
+}
+.navbar.sticky {
+  background: rgba(255, 255, 255, .7);
+  box-shadow: 0 0 20px rgba(0, 0, 0 , .1)
+}
+
+.navbar.sticky .navbarContent {
+  height: calc(2.5rem + 1rem);
+}
